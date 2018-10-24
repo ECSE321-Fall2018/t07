@@ -119,7 +119,7 @@ public class RideShareController {
 	@RequestMapping(path="/trips/search", method=RequestMethod.POST)
 	public String trip_search(ModelMap modelMap, @RequestParam(name="id", defaultValue= "") String tripid, @RequestParam(name="dep", defaultValue="") String departure, 
 			@RequestParam(name="dest", defaultValue="") String destination, @RequestParam(name="date", defaultValue="") String date, 
-			@RequestParam(name="seats", defaultValue="") String seats) {
+			@RequestParam(name="seats", defaultValue="") String seats, @RequestParam(name="sortBy", defaultValue="") String sortBy) {
 		if (tripid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectTrip(Integer.parseInt(tripid));
@@ -141,14 +141,30 @@ public class RideShareController {
 			if (seats.isEmpty() == false) { 
 				seats = "AND seats_available>='" + seats + "'"; 
 			}
+			
+			//Determining what to sort by
+			int sortType = Integer.parseInt(sortBy);
+			
+			if (sortType == 1) {
+				sortBy = " ORDER BY prices[array_length(prices, 1)] ASC";
+			}
+			else if (sortType == 2) { //Presume if you are ordering by # of seats then you likely want to see results with the most seats since youre likely looking for yourself and others
+				sortBy = " ORDER BY seats_available DESC";
+			}
+			else if (sortType == 3) {
+				sortBy = " ORDER BY durations[array_length(durations, 1)] ASC";
+			}
+			else { //Else case will be time, since that is the default we will assume
+				sortBy = " ORDER BY departure_time ASC";
+			}
 		
 			List<Map<String,Object>> list;
-			String query = "select * from trip_table WHERE " + departure + destination + date + seats + " ORDER BY departure_time ASC";
+			String query = "select * from trip_table WHERE " + departure + destination + date + seats + sortBy;
 			list = service.executeSQL(query);
 			return list.toString();
 		}
 		else {
-			return "Usage: Send a POST request to \"/trips/search?dep={departure_location}&dest={destination}&date={departure_date}&seats={seats_required}\" \n"
+			return "Usage: Send a POST request to \"/trips/search?dep={departure_location}&dest={destination}&date={departure_date}&seats={seats_required}&sortBy={time(0), price(1), seats(2) or duration(3)}\" \n"
 					+ "Note that, at minimum, either a specific Trip ID or a Departure Location is required";
 		}
     		
