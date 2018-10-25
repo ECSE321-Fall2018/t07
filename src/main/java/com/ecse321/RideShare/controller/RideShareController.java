@@ -43,7 +43,8 @@ public class RideShareController {
 	@RequestMapping(path="/instructions")
 	public String instructions() {
 		return "Create a new user with a POST request: /users/create \n"
-        		+ "Create a new trip with a POST request: /trips/create \n \n"
+        		+ "Create a new trip with a POST request: /trips/create \n "
+        		+ "Modify an existing trip with a POST request: /trips/modify \n \n"
         		+ "Delete a user with a DELETE request: /users \n"
         		+ "Delete a trip with a DELETE request: /trips \n \n"
         		+ "See all users with a GET request: /users \n"
@@ -265,6 +266,144 @@ public class RideShareController {
 			+ "\"Usage: Send a POST request to \"/trips/create?driverID={Driver ID}&driverEmail={Driver Email}&driverPhone={Driver Phone Number}&date={yyyy-mm-dd}&depTime={HH:MM:SS}&depLocation={Departure Location}&"
 			+ "destinations={Destination1, Destination2, etc}&tripDurations={Duration1, Duration2, etc}&prices={Price1, Price2, etc}&seats={Available Seats}&vehicleType={Vehicle Type}&"
 			+ "licensePlate={License Plate Number}&comments={Additional Comments}\"";
+    	}
+    }
+    
+    //Modifies the details of a specific trip
+    @PostMapping("/trips/modify")
+    public String modifyTrip(@RequestParam(name="tripID", defaultValue="") String tripIDString, @RequestParam(name="date", defaultValue="") String date, @RequestParam(name="depTime", defaultValue="") String time, 
+    		@RequestParam(name="depLocation", defaultValue="") String depLocation, @RequestParam(name="destinations", defaultValue="") String destinations, @RequestParam(name="tripDurations", defaultValue="") String tripDurations, 
+    		@RequestParam(name="prices", defaultValue="") String prices, @RequestParam(name="seats", defaultValue="") String seatsString, @RequestParam(name="vehicleType", defaultValue="") String vehicleType, 
+    		@RequestParam(name="licensePlate", defaultValue="") String licensePlate, @RequestParam(name="driverPhone", defaultValue="") String driverPhone, @RequestParam(name="driverEmail", defaultValue="") String driverEmail, @RequestParam(name="comments", defaultValue="") String comments) {
+    	
+    	int seats;
+    	boolean first = true;
+    	String query = "UPDATE trip_table SET ";
+    	
+    	if (!tripIDString.isEmpty()) {
+    		if (!date.isEmpty()) {
+    			if (!isValidFormat(date, "yyyy-MM-dd")) {
+	    			return "Please enter the Departure Date in the following format: yyyy-MM-dd";
+	    		}
+    			else {
+    				LocalDate departureDate = LocalDate.parse(date);
+    				query += "departure_date = '" + departureDate + "'";
+    				first = false;
+    			}
+    		}
+    		if (!time.isEmpty()) {
+    			if (!isValidFormat(time, "HH:mm:ss")) {
+	    			return "Please enter the Departure Time in the following format: HH:mm:ss";
+	    		}
+    			else {
+    				if (!first) {
+        				query += ", ";
+        			}
+    				first = false;
+    				LocalTime departureTime = LocalTime.parse(time);
+    				query += "departure_time = '" + departureTime + "'";
+    			}
+    			
+    		}
+    		if (!depLocation.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "departure_location = '" + depLocation.toLowerCase() + "'";
+    		}
+    		if (!destinations.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "destinations = '{" + destinations.toLowerCase() + "}'";
+    		}
+    		if (!tripDurations.isEmpty()) {
+    			//This is converting back and forth but it ensures they entered a properly compliant answer
+    			String[] strDuration = separateByComma(tripDurations);
+    			Float[] floatDuration = stringToFloatArray(strDuration);    	
+    			ArrayList<Float> tripDurationList = new ArrayList<Float>(Arrays.asList(floatDuration));
+    			String durationString = arrayListToString(tripDurationList);
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			
+    			query += "durations = '{" + durationString + "}'";
+    		}
+    		if (!prices.isEmpty()) {
+    			//This is converting back and forth but it ensures they entered a properly compliant answer
+    			String[] strPrices = separateByComma(prices);
+    			Float[] floatPrices = stringToFloatArray(strPrices);    	
+    			ArrayList<Float> pricesList = new ArrayList<Float>(Arrays.asList(floatPrices));
+    			String pricesString = arrayListToString(pricesList);
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			
+    			query += "prices = '{" + pricesString + "}'";
+    		}
+    		if (!seatsString.isEmpty()) {
+    			seats = Integer.parseInt(seatsString);
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "seats_available = " + seats;
+    		}
+    		if (!vehicleType.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "vehicle_type = '" + vehicleType + "'";
+    		}
+    		if (!licensePlate.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "licence_plate = '" + licensePlate + "'";
+    		}
+    		if (!driverPhone.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "contact_no = '" + driverPhone + "'";
+    		}
+    		if (!driverEmail.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "driver_email = '" + driverEmail + "'";
+    		}
+    		if (!comments.isEmpty()) {
+    			if (!first) {
+    				query += ", ";
+    			}
+    			first = false;
+    			query += "comments = '" + comments + "'";
+    		}
+    		
+    		if (first) {
+    			//If first is still true then that means all the details fields are empty
+    			return "All fields are empty";
+    		}
+    		
+    		query += " WHERE trip_id =" + tripIDString;
+    		service.sqlInsert(query);
+    		return "Successfully Modified Trip!";
+    		
+    	}
+    	else {
+    		return "Please enter any changes you would like to make (Trip ID is mandatory): \n"
+    				+ "\"Usage: Send a POST request to \"/trips/modify?tripID={Trip ID}&driverEmail={Driver Email}&driverPhone={Driver Phone Number}&date={yyyy-mm-dd}&depTime={HH:MM:SS}&depLocation={Departure Location}&"
+    				+ "destinations={Destination1, Destination2, etc}&tripDurations={Duration1, Duration2, etc}&prices={Price1, Price2, etc}&seats={Available Seats}&vehicleType={Vehicle Type}&"
+    				+ "licensePlate={License Plate Number}&comments={Additional Comments}\"";
     	}
     }
     
