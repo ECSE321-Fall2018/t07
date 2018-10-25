@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecse321.RideShare.RideShareService;
 import com.ecse321.RideShare.model.Trip;
 import com.ecse321.RideShare.model.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 @RestController
 @ComponentScan("com.ecse321.RideShare.*")
@@ -67,7 +72,9 @@ public class RideShareController {
 	public String user_list (ModelMap modelMap, @RequestParam(name="id", defaultValue= "") String userid ) {	
 		List<Map<String,Object>> list;
 		list = service.selectUsers();
-		return list.toString();
+		
+		String json = new Gson().toJson(list);
+		return json;
     }
 	
 	// search user_table based on id or name
@@ -76,7 +83,8 @@ public class RideShareController {
 		if (userid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectUser(Integer.parseInt(userid));
-			return list.toString();
+			String json = new Gson().toJson(list);
+			return json;
 		}
 		else if (keyword.isEmpty() == false) {
 			List<Map<String,Object>> list;
@@ -96,7 +104,8 @@ public class RideShareController {
 			
 			String query = "select * from user_table WHERE " + searchTerm;
 			list = service.executeSQL(query);
-			return list.toString();
+			String json = new Gson().toJson(list);
+			return json;
 		}
 		else {
 			return "Usage: Send a POST request to \"/users/search?id={id}\" or \"/users/search?keyword={name}\"";
@@ -107,13 +116,19 @@ public class RideShareController {
 	/* 
 	 * For trip data (DB: 'trip_table')
 	 */
-	
+		
 	// return the list of trips
 	@RequestMapping(path="/trips", method=RequestMethod.GET)
 	public String trip() {
 		List<Map<String,Object>> list;
-		list = service.executeSQL ("select * from trip_table");
-		return list.toString();
+		list = service.executeSQL ("select to_json(trip_table) from trip_table");
+		
+		String value = new String();
+		for (int i=0; i<list.size(); i++) {
+			value += list.get(i).values().toString();
+		}
+		
+		return value;
 	}
        
 	// searching trips based on queries
@@ -124,7 +139,12 @@ public class RideShareController {
 		if (tripid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectTrip(Integer.parseInt(tripid));
-			return list.toString();
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
 		}
 		else if (departure.isEmpty() == false) {
 			departure = "departure_location='" + departure.toLowerCase() + "'";
@@ -144,25 +164,37 @@ public class RideShareController {
 			}
 			
 			//Determining what to sort by
-			int sortType = Integer.parseInt(sortBy);
 			
-			if (sortType == 1) {
-				sortBy = " ORDER BY prices[array_length(prices, 1)] ASC";
+			if (!sortBy.isEmpty()) {
+				int sortType = Integer.parseInt(sortBy);
+				
+				if (sortType == 1) {
+					sortBy = " ORDER BY prices[array_length(prices, 1)] ASC";
+				}
+				else if (sortType == 2) { //Presume if you are ordering by # of seats then you likely want to see results with the most seats since youre likely looking for yourself and others
+					sortBy = " ORDER BY seats_available DESC";
+				}
+				else if (sortType == 3) {
+					sortBy = " ORDER BY durations[array_length(durations, 1)] ASC";
+				}
+				else { //Else case will be time, since that is the default we will assume
+					sortBy = " ORDER BY departure_time ASC";
+				}
 			}
-			else if (sortType == 2) { //Presume if you are ordering by # of seats then you likely want to see results with the most seats since youre likely looking for yourself and others
-				sortBy = " ORDER BY seats_available DESC";
-			}
-			else if (sortType == 3) {
-				sortBy = " ORDER BY durations[array_length(durations, 1)] ASC";
-			}
-			else { //Else case will be time, since that is the default we will assume
+			else {
 				sortBy = " ORDER BY departure_time ASC";
 			}
 		
 			List<Map<String,Object>> list;
-			String query = "select * from trip_table WHERE " + departure + destination + date + seats + sortBy;
+			String query = "select to_json(trip_table) from trip_table WHERE " + departure + destination + date + seats + sortBy;
 			list = service.executeSQL(query);
-			return list.toString();
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
 		}
 		else {
 			return "Usage: Send a POST request to \"/trips/search?dep={departure_location}&dest={destination}&date={departure_date}&seats={seats_required}&sortBy={time(0), price(1), seats(2) or duration(3)}\" \n"
