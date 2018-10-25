@@ -17,23 +17,23 @@ public class RideShareService {
 	protected JdbcTemplate jdbcTemplate;
 	
 	public List<Map<String,Object>> selectUsers() {
-		return jdbcTemplate.queryForList("select * from user_table");
+		return jdbcTemplate.queryForList("select to_json(user_table) from user_table");
 		
 	}
 	
 	public List<Map<String,Object>> selectTrips() {
-		return jdbcTemplate.queryForList("select * from trip_table");
+		return jdbcTemplate.queryForList("select to_json(trip_table) from trip_table");
 	}
 	
 	public List<Map<String,Object>> selectUser(int userid) {
-		return jdbcTemplate.queryForList("select * from user_table where userid = ?", userid);
+		return jdbcTemplate.queryForList("select to_json(user_table) from user_table where userid = ?", userid);
 	}
 	
 	public List<Map<String,Object>> selectTrip(int tripid) {
-		return jdbcTemplate.queryForList("select * from trip_table where trip_id = " + tripid);
+		return jdbcTemplate.queryForList("select to_json(trip_table) from trip_table where trip_id = " + tripid);
 	}
 	
-	public List<Map<String,Object>> executeSQL (String query) {
+	public List<Map<String, Object>> executeSQL (String query) {
 		return jdbcTemplate.queryForList(query);
 	}
 	
