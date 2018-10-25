@@ -242,8 +242,8 @@ public class RideShareController {
     	    			//Creates the object and returns a confirmation message that it worked
     	    			Trip newTrip = new Trip (driverID, driverEmail, driverPhone, date, time, depLocation.toLowerCase(), destinationList, tripDurationList, pricesList, seats, vehicleType, licensePlate, comments);
     	    			
-    	    			String query = "INSERT INTO trip_table (driver_id, departure_date, departure_time, departure_location, durations, destinations, seats_available, passenger_id, prices, vehicle_type, licence_plate, contact_no, comments)"
-	    						+ "VALUES (" " + newTrip.getDriverID() + ", '" + newTrip.getDepartureDate() + "', '" + newTrip.getDepartureTime() + "', '" + newTrip.getDepartureLocation() + "', '{" + arrayListToString(newTrip.getTripDurations()) + "}', '{"
+    	    			String query = "INSERT INTO trip_table (trip_id, driver_id, departure_date, departure_time, departure_location, durations, destinations, seats_available, passenger_id, prices, vehicle_type, licence_plate, contact_no, comments)"
+	    						+ "VALUES (" + newTrip.getTripID() + ", " + newTrip.getDriverID() + ", '" + newTrip.getDepartureDate() + "', '" + newTrip.getDepartureTime() + "', '" + newTrip.getDepartureLocation() + "', '{" + arrayListToString(newTrip.getTripDurations()) + "}', '{"
 	    						+ arrayListToString(newTrip.getDestination()) + "}', " + newTrip.getSeats() + ", '{" + arrayListToString(newTrip.getPassengerIDList()) + "}', '{" + arrayListToString(newTrip.getPrices()) + "}', '" + newTrip.getVehicleType() + "', '" + newTrip.getLicencePlate() + "', '" + newTrip.getDriverPhone() + "', '" + newTrip.getComments() + "')";	
     	    			
     	    			service.sqlInsert(query);
