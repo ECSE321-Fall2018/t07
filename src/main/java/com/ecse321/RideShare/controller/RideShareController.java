@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,9 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecse321.RideShare.RideShareService;
 import com.ecse321.RideShare.model.Trip;
 import com.ecse321.RideShare.model.User;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
+
 
 @RestController
 @ComponentScan("com.ecse321.RideShare.*")
@@ -73,8 +69,12 @@ public class RideShareController {
 		List<Map<String,Object>> list;
 		list = service.selectUsers();
 		
-		String json = new Gson().toJson(list);
-		return json;
+		String value = new String();
+		for (int i=0; i<list.size(); i++) {
+			value += list.get(i).values().toString();
+		}
+		
+		return value;
     }
 	
 	// search user_table based on id or name
@@ -83,8 +83,13 @@ public class RideShareController {
 		if (userid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectUser(Integer.parseInt(userid));
-			String json = new Gson().toJson(list);
-			return json;
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
 		}
 		else if (keyword.isEmpty() == false) {
 			List<Map<String,Object>> list;
@@ -102,10 +107,15 @@ public class RideShareController {
 				
 			}
 			
-			String query = "select * from user_table WHERE " + searchTerm;
+			String query = "select to_json (user_table) from user_table WHERE " + searchTerm;
 			list = service.executeSQL(query);
-			String json = new Gson().toJson(list);
-			return json;
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
 		}
 		else {
 			return "Usage: Send a POST request to \"/users/search?id={id}\" or \"/users/search?keyword={name}\"";
