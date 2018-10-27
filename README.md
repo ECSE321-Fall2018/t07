@@ -9,6 +9,11 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+
+Oct. 25, 2018: Add login and signup page for Passenger
+- Switch between existing pages
+- Is able to reject login or signup request if desired info is not filled (need further implementation)
+
 Oct. 7, 2018: Fixed unintended cases for Join/Leave
 - Previously you could Join a trip even if your passenger ID was already on the list, adding you twice and taking another seat
 - Now it checks if your ID is already on the list and if you are, then you aren't added
