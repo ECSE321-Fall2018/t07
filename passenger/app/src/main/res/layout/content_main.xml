@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:background="@color/background"
+    tools:showIn="@layout/activity_main"
+    android:id="@+id/mainlayout">
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,11 +59,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/MainSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_gravity="end"
-        android:layout_marginTop="260sp"
+        android:layout_marginTop="324dp"
         android:text="@string/SignUp"
         android:textSize="18sp"
 

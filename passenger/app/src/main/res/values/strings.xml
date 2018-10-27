@@ -5,5 +5,14 @@
     <string name="Or">"Or"</string>
     <string name="Passenger">Passenger</string>
     <string name="SignUp">"Sign Up"</string>
+    <string name="Login">"Login"</string>
     <string name="desc">"login icon"</string>
+    <string name="email">"    Email"</string>
+    <string name="password">"    Password"</string>
+    <string name="title_activity_user_login">User_login</string>
+    <string name="title_activity_user__signup">User_Signup</string>
+    <string name="FirstName">"    First Name"</string>
+    <string name="LastName">"    Last Name"</string>
+    <string name="Phone_no">"    Phone Number"</string>
+    <string name="title_activity_profile_page">Profile_page</string>
 </resources>
