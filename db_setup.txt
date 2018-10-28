@@ -24,5 +24,31 @@ INSERT INTO trip_table VALUES (
 	'{0}', 
 	'{3.25,5.20}',
 	'SUBARU WRX STi Blue Sedan'
-); 	
-	
+);
+
+
+CREATE TABLE user_table (
+  userid int primary key, 
+  admin boolean, 
+  firstname text, 
+  lastname text, 
+  email text, 
+  phone text,
+  password text,
+  preferences text, 
+  driver_rating numeric, 
+  passenger_rating numeric
+);
+
+insert into user_table values (
+  1,
+  1,
+  'John',
+  'Smith',
+  'JohnSmith@example.com',
+  '5140000000',
+  'mypassword',
+  '',
+  0,
+  0
+);

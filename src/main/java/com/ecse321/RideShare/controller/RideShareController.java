@@ -123,6 +123,33 @@ public class RideShareController {
 	}
 	
 	
+	// Authentication using email and password
+	// WEAK SECURITY
+	@RequestMapping(path="/users/auth", method=RequestMethod.POST)
+	public String user_auth (ModelMap modelMap, @RequestParam(name="email", defaultValue= "") String email, @RequestParam(name="password", defaultValue= "") String password) {
+		if (email.isEmpty() == false && password.isEmpty() == false) {
+			List<Map<String,Object>> list;
+			list = service.executeSQL("SELECT to_json (user_table) FROM (SELECT userid FROM user_table WHERE email = '" + email + "' AND password = '" + password + "') user_table");
+			
+			if (list.size() == 0) {
+				return "{\"userid\":-1}";
+			}
+			else {
+				String value = new String();
+				for (int i=0; i<list.size(); i++) {
+					value += list.get(i).values().toString();
+				}
+				
+				return value;
+			}
+			
+		}
+		else {
+			return "Usage: Send a POST request to \"/users/auth?email={id}&password={password}\"";
+		}
+	}
+	
+	
 	/* 
 	 * For trip data (DB: 'trip_table')
 	 */
