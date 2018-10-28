@@ -1,4 +1,4 @@
-ca.mcgill.ecse321.rideshare_passenger_android
+ca.mcgill.ecse321.ecse321_group7
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -589,6 +589,7 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color background
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1006,6 +1007,7 @@ drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable img_295110
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1025,10 +1027,16 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id Email
 id FUNCTION
+id LogIn
 id META
+id MainSignUp
+id Password
+id ProfilePage
 id SHIFT
 id SYM
+id SignUp
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1086,6 +1094,7 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id email
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1097,6 +1106,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id firstname
 id fixed
 id forever
 id ghost_view
@@ -1109,17 +1119,20 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView3
 id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id lastname
 id left
 id line1
 id line3
 id listMode
 id list_item
+id mainlayout
 id masked
 id message
 id middle
@@ -1140,7 +1153,9 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id password
 id percent
+id phone_no
 id pin
 id progress_circular
 id progress_horizontal
@@ -1173,6 +1188,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signupbutton
 id smallLabel
 id snackbar_action
 id snackbar_text
@@ -1199,6 +1215,10 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
+id textView2
+id textView3
+id textView4
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1273,7 +1293,12 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_profile_page
+layout activity_user__signup
+layout activity_user_login
 layout content_main
+layout content_profile_page
+layout content_user__signup
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -1300,9 +1325,18 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout user_login
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round
+string FirstName
+string LastName
+string Login
+string Or
+string Passenger
+string Phone_no
+string SignUp
+string Tap_here_to_login
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -1348,10 +1382,13 @@ string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
+string desc
+string email
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
 string mtrl_chip_close_icon_content_description
+string password
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -1359,6 +1396,9 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_profile_page
+string title_activity_user__signup
+string title_activity_user_login
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
