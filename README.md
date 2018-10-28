@@ -10,6 +10,10 @@ NOTE:
 
 ### Changelog
 
+Oct. 28, 2018: Added user authentication function in the backend. 
+- Usage: Send a POST request to "/users/auth?email={id}&password={password}"
+- Returns in JSON [{"userid":x}] if exists. [{"userid":-1}] if does not exist. 
+
 Oct. 25, 2018: Add login and signup page for Passenger
 - Switch between existing pages
 - Is able to reject login or signup request if desired info is not filled (need further implementation)
