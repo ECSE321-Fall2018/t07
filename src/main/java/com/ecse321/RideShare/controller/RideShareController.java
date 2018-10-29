@@ -132,7 +132,7 @@ public class RideShareController {
 			list = service.executeSQL("SELECT to_json (user_table) FROM (SELECT userid FROM user_table WHERE email = '" + email + "' AND password = '" + password + "') user_table");
 			
 			if (list.size() == 0) {
-				return "{\"userid\":-1}";
+				return "[{\"userid\":-1}]";
 			}
 			else {
 				String value = new String();
