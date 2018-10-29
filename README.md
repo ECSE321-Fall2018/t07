@@ -10,6 +10,14 @@ NOTE:
 
 ### Changelog
 
+Oct. 29, 2018: Completed Trip Search Page for Passenger App
+- The Trip Search Page layout is now complete
+- Includes textedit boxes for the departure and destination locations
+- Uses the DatePickerFragment to allow the user to easily select a date
+- String output was reformatted to fit the proper Java LocalDate format to be used later
+- Spinner is also properly implemented with string values for 1, 2, 3, 4+ available seats
+- This string will have to be parsed when searched (because of the 4+ option)
+
 Oct. 28, 2018: Added user authentication function in the backend. 
 - Usage: Send a POST request to "/users/auth?email={id}&password={password}"
 - Returns in JSON [{"userid":x}] if exists. [{"userid":-1}] if does not exist. 
