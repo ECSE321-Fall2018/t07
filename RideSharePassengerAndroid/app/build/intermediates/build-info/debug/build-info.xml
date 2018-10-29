@@ -6,7 +6,7 @@
     density="420dpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1540834998219"
+    timestamp="1540839986977"
     token="-6594223494333179001"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -18,13 +18,16 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="532" />
     <task
         name="verifier"
         duration="0" />
 
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
         type="SPLIT" />
     <artifact
         location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
@@ -33,10 +36,37 @@
         location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
         type="SPLIT" />
     <artifact
         location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
         location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -51,24 +81,30 @@
         location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
         type="SPLIT" />
     <artifact
-        location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1540834998219"
+        timestamp="1540839986977"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
             location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
@@ -77,10 +113,37 @@
             location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
         <artifact
             location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
             location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
@@ -95,16 +158,19 @@
             location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
 
