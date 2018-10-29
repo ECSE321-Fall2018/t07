@@ -38,7 +38,7 @@ public class User_login extends AppCompatActivity {
         Signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent JumpToSignUp = new Intent(User_login.this, User_Signup.class);
+                Intent JumpToSignUp = new Intent(User_login.this, Trip_Search.class);
                 startActivity(JumpToSignUp);
             }
         });

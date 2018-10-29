@@ -33,6 +33,10 @@
             android:name=".Profile_page"
             android:label="@string/title_activity_profile_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Trip_Search"
+            android:label="@string/title_activity_trip_search"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

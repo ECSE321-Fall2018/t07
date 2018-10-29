@@ -1,4 +1,4 @@
-#Sun Oct 28 11:11:53 EDT 2018
-base.0=/Users/norinmura/Desktop/passenger/app/build/intermediates/transforms/dexMerger/debug/2
+#Mon Oct 29 13:00:09 EDT 2018
+base.0=/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/transforms/dexMerger/debug/2
 path.0=classes.dex
 renamed.0=classes.dex

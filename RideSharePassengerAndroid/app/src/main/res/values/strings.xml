@@ -15,4 +15,10 @@
     <string name="LastName">"    Last Name"</string>
     <string name="Phone_no">"    Phone Number"</string>
     <string name="title_activity_profile_page">Profile_page</string>
+    <string name="departure">Where from?</string>
+    <string name="destination">Where to?</string>
+    <string name="departure_date">When?</string>
+    <string name="title_activity_trip_search">Trip_Search</string>
+    <string name="newevent_date_label">Date?</string>
+    <string name="newevent_date_first">Some Date</string>
 </resources>
