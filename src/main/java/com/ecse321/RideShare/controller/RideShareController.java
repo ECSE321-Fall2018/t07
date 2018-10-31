@@ -221,9 +221,21 @@ public class RideShareController {
 			else {
 				sortBy = " ORDER BY departure_time ASC";
 			}
-		
+					
 			List<Map<String,Object>> list;
-			String query = "select to_json(trip_table) from trip_table WHERE " + departure + destination + date + seats + sortBy;
+			String query	= "WITH filtered AS (" + 
+					"  SELECT * FROM trip_table WHERE" + departure + destination + date + seats + sortBy + 
+					"), final AS (" + 
+					"  SELECT * from filtered" + 
+					"  LEFT OUTER JOIN user_table " + 
+					"  ON filtered.driver_id = user_table.userid" + 
+					")" + 
+					"select to_json(final) from final";
+			
+			
+			// Originally it was
+			// select to_json(trip_table) from trip_table WHERE " + departure + destination + date + seats + sortBy;
+			
 			list = service.executeSQL(query);
 			
 			String value = new String();
