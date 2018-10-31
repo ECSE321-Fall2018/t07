@@ -1026,7 +1026,10 @@ drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id ArrivalLoc
 id CTRL
+id DateText
+id DepartureLoc
 id Email
 id FUNCTION
 id LogIn
@@ -1037,6 +1040,11 @@ id ProfilePage
 id SHIFT
 id SYM
 id SignUp
+id _depTime
+id _drivname
+id _duration
+id _search
+id _seatsleft
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1069,7 +1077,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id button
 id buttonPanel
 id center
 id center_horizontal
@@ -1138,6 +1145,7 @@ id line3
 id linearLayout
 id linearLayout2
 id linearLayout3
+id linearLayout4
 id listMode
 id list_item
 id mainlayout
@@ -1148,6 +1156,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id myListView
 id navigation_header_container
 id never
 id none
@@ -1227,9 +1236,11 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView10
+id textView12
 id textView2
 id textView3
 id textView4
+id textView5
 id textView7
 id textView8
 id textView9
@@ -1314,6 +1325,7 @@ layout activity_user_login
 layout content_main
 layout content_profile_page
 layout content_trip_search
+layout content_tripsearchresult
 layout content_user__signup
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1329,6 +1341,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout list_result_item
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

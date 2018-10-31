@@ -27,8 +27,12 @@ public class Trip_Search extends AppCompatActivity {
 
     private EditText departure;
     private EditText destination;
-
     private Button searchButton;
+
+    private Spinner seatsSpinner;
+
+    private TextView depart_time;
+
     //private ImageButton profileButton;
 
     private int myUserid = 0;
@@ -40,14 +44,16 @@ public class Trip_Search extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner seatsSpinner = (Spinner) findViewById(R.id.availableSeatsSpinner);
+        seatsSpinner = (Spinner) findViewById(R.id.availableSeatsSpinner);
         seatsSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, availableSeatsSpinnerOptions);
         seatsSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         seatsSpinner.setAdapter(seatsSpinnerAdapter);
 
         departure = findViewById(R.id.departure_input);
         destination = findViewById(R.id.destination_input);
-        searchButton = findViewById(R.id.button);
+        searchButton = findViewById(R.id._search);
+
+        depart_time = this.findViewById(R.id.departure_date_input);
 
         /*
         profileButton = findViewById(R.id.profileButton);
@@ -72,8 +78,15 @@ public class Trip_Search extends AppCompatActivity {
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (!ToReject(departure) && !ToReject(destination)) {
+                if (!ToReject(departure)/* && !ToReject(destination)*/) {       // Checking departure only; just list them all
                     //Execute the search code and go to search page layout
+                    Intent OpenResult = new Intent(Trip_Search.this, TripSearchResult.class);
+                    OpenResult.putExtra("Date",depart_time.getText().toString());
+                    OpenResult.putExtra("Dept",departure.getText().toString());  // passing the argument
+                    OpenResult.putExtra("Dest",destination.getText().toString());  // passing the argument
+                    OpenResult.putExtra("Seats",seatsSpinner.getSelectedItemPosition()+1);
+
+                    startActivity(OpenResult);
                 }
                 else {
                     Toast.makeText(Trip_Search.this, "Please fill out all fields", Toast.LENGTH_SHORT).show();

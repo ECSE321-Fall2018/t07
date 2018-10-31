@@ -39,6 +39,10 @@
             android:name=".Trip_Search"
             android:label="@string/title_activity_trip_search"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TripSearchResult"
+            android:label="TripSearchResult"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
