@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +29,9 @@ public class Trip_Search extends AppCompatActivity {
     private EditText destination;
 
     private Button searchButton;
+    //private ImageButton profileButton;
+
+    private int myUserid = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,26 @@ public class Trip_Search extends AppCompatActivity {
         destination = findViewById(R.id.destination_input);
         searchButton = findViewById(R.id.button);
 
+        /*
+        profileButton = findViewById(R.id.profileButton);
+
+        profileButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent JumpToProfilePage = new Intent(Trip_Search.this, Profile_page.class);
+                startActivity(JumpToProfilePage);
+            }
+        });
+        */
+
+        //////////////
+        // Receive the userid value from User_login here
+        Intent i = getIntent();
+        myUserid = i.getIntExtra("userid", -1);
+        Toast.makeText(Trip_Search.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
+        //System.out.println("My Userid: " + myUserid);
+        /////////////
+
         searchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -54,6 +80,25 @@ public class Trip_Search extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_option, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ProfilePage:
+                Intent launchNewIntent = new Intent(Trip_Search.this,Profile_page.class);
+                startActivityForResult(launchNewIntent, 0);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public boolean ToReject(EditText check){

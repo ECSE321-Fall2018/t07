@@ -8,6 +8,22 @@
     tools:context=".Profile_page"
     tools:showIn="@layout/activity_profile_page">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="Trip Search" />
+
+    </android.support.design.widget.AppBarLayout>
+
     <EditText
         android:id="@+id/ProfilePage"
         android:layout_width="wrap_content"

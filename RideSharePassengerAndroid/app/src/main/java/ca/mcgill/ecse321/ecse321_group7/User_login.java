@@ -44,8 +44,8 @@ public class User_login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         Signup = findViewById(R.id.signupbutton);
         login = findViewById(R.id.LogIn);
@@ -55,7 +55,7 @@ public class User_login extends AppCompatActivity {
         Signup.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent JumpToSignUp = new Intent(User_login.this, Trip_Search.class);
+                Intent JumpToSignUp = new Intent(User_login.this, User_Signup.class);
                 startActivity(JumpToSignUp);
             }
         });
@@ -89,9 +89,9 @@ public class User_login extends AppCompatActivity {
                                     Toast.makeText(User_login.this, "Wrong credentials, or the user does not exist. ", Toast.LENGTH_SHORT).show();
                                 } else {
                                     // make a transition to Profile page with an argument passed over
-                                    Intent OpenProfile = new Intent(User_login.this, Profile_page.class);
-                                    OpenProfile.putExtra("userid",userid);  // passing the argument
-                                    startActivity(OpenProfile);
+                                    Intent OpenSearch = new Intent(User_login.this, Trip_Search.class);
+                                    OpenSearch.putExtra("userid",userid);  // passing the argument
+                                    startActivity(OpenSearch);
                                 }
                             }
                             catch (JSONException e) {

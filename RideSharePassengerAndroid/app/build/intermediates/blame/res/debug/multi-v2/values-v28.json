@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
+            "outputFile": "/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "/Users/norinmura/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/54fcc57c06b8c93baebdb48fe6d1de8e/res/values-v28/values-v28.xml",
+                    "source": "/Users/RyanDotsikas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3ce32686eb9df9a33204fb673aa08db5/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",
