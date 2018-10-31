@@ -6,6 +6,9 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -40,8 +43,8 @@ public class TripSearchResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_tripsearchresult);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         date = this.findViewById(R.id.DateText);
         dep_loc = findViewById(R.id.DepartureLoc);
@@ -104,7 +107,7 @@ public class TripSearchResult extends AppCompatActivity {
                     else {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject data = response.getJSONObject(i);
-                            CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"),
+                            CustomListView item = new CustomListView(i, capitalizeFirstLetter(data.getString("firstname")) + " " + capitalizeFirstLetter(data.getString("lastname")),
                                     data.getString("seats_available"),
                                     data.getString("departure_time"),
                                     data.getJSONArray("durations").getString(0) + " hours",
@@ -155,5 +158,39 @@ public class TripSearchResult extends AppCompatActivity {
             startActivity(OpenDetails);
         }
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_option, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.profilePageMenu:
+                Intent GoToProfile = new Intent(TripSearchResult.this,Profile_page.class);
+                startActivityForResult(GoToProfile, 0);
+                return true;
+
+            case R.id.homeMenuButton:
+                Intent GoToSearch = new Intent(TripSearchResult.this,Trip_Search.class);
+                startActivityForResult(GoToSearch, 0);
+                //Should send userID when we figure out the global way to do this
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //Quick method that capitlizes the first letter of the string so we can take our entirely lower case data and display it nicely
+    private String capitalizeFirstLetter(String original) {
+        if (original == null || original.length() == 0) {
+            return original;
+        }
+        return original.substring(0, 1).toUpperCase() + original.substring(1);
+    }
 
 }

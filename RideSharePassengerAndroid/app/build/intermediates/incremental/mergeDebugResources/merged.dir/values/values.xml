@@ -2215,7 +2215,7 @@
     <string name="Passenger">Passenger</string>
     <string name="Phone_no">"    Phone Number"</string>
     <string name="SignUp">"Sign Up"</string>
-    <string name="Tap_here_to_login">"Type here to login"</string>
+    <string name="Tap_here_to_login">"Tap here to login"</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
     <string name="abc_action_menu_overflow_description">More options</string>

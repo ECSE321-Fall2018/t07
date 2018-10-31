@@ -4,7 +4,12 @@
 
     <item
         android:id="@+id/profilePageMenu"
-        android:icon="@drawable/img_295110"
+        android:icon="@drawable/ic_profile_circle"
         android:title="Profile Page"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/homeMenuButton"
+        android:icon="@drawable/ic_action_name"
+        android:title="Home"
         app:showAsAction="always" />
 </menu>

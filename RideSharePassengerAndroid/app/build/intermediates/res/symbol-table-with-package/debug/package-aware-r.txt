@@ -1002,11 +1002,13 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_action_name
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_profile_circle
 drawable img_295110
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1127,6 +1129,7 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id homeMenuButton
 id icon
 id icon_group
 id ifRoom
