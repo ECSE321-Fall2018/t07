@@ -92,7 +92,7 @@ public class Trip_Search extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.ProfilePage:
+            case R.id.profilePageMenu:
                 Intent launchNewIntent = new Intent(Trip_Search.this,Profile_page.class);
                 startActivityForResult(launchNewIntent, 0);
                 return true;

@@ -20,7 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="Trip Search" />
+            app:title="Profile Page" />
 
     </android.support.design.widget.AppBarLayout>
 

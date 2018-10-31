@@ -78,8 +78,8 @@ public class User_Signup extends AppCompatActivity {
                             public void onResponse(String response) {
                                 // Display the first 500 characters of the response string.
                                 Toast.makeText(User_Signup.this, response, Toast.LENGTH_SHORT).show();
-                                Intent OpenSearch = new Intent(User_Signup.this, Trip_Search.class);
-                                startActivity(OpenSearch);
+                                Intent GoToLogin = new Intent(User_Signup.this, User_login.class);
+                                startActivity(GoToLogin);
                             }
                         }, new Response.ErrorListener() {
                             @Override
