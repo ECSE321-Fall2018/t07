@@ -224,13 +224,13 @@ public class RideShareController {
 					
 			List<Map<String,Object>> list;
 			String query	= "WITH filtered AS (" + 
-					"  SELECT * FROM trip_table WHERE" + departure + destination + date + seats + sortBy + 
+					"  SELECT * FROM trip_table WHERE " + departure + destination + date + seats + sortBy + 
 					"), final AS (" + 
 					"  SELECT * from filtered" + 
 					"  LEFT OUTER JOIN user_table " + 
 					"  ON filtered.driver_id = user_table.userid" + 
 					")" + 
-					"select to_json(final) from final";
+					"SELECT to_json(final) FROM final";
 			
 			
 			// Originally it was

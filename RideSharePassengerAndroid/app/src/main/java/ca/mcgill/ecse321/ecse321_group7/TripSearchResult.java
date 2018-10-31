@@ -81,7 +81,7 @@ public class TripSearchResult extends AppCompatActivity {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject data = response.getJSONObject(i);
-                        CustomListView item = new CustomListView(i, "Annoynymous Driver", data.getString("seats_available"), data.getString("departure_time"), data.getJSONArray("durations").getString(0) + " hours");
+                        CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"), data.getString("seats_available"), data.getString("departure_time"), data.getJSONArray("durations").getString(0) + " hours");
                         listItems.add(item);
                     }
 
