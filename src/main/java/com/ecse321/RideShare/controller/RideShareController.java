@@ -230,7 +230,7 @@ public class RideShareController {
 					"  LEFT OUTER JOIN user_table " + 
 					"  ON filtered.driver_id = user_table.userid" + 
 					")" + 
-					"SELECT to_json(final) FROM final";
+					"SELECT array_to_json(array_agg(final)) FROM final";
 			
 			
 			// Originally it was
