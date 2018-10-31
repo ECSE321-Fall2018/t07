@@ -49,12 +49,6 @@ public class CustomListViewAdapter  extends ArrayAdapter<CustomListView> {
         TextView duration = (TextView)view.findViewById(R.id._duration);
         duration.setText(item.getTripDur());
 
-        if (view == null) {
-            System.out.println("View is null");
-        } else {
-            System.out.println("View is not null so should be ok, e.g. drivname=" + ((TextView) view.findViewById(R.id._drivname)).getText().toString());
-        }
-
         return view;
     }
 

@@ -9,6 +9,7 @@ public class CustomListView {
     private String mseats = null;
     private String mtime = null;
     private String mduration = null;
+    private String mjson = null;
 
     public CustomListView() {};
 
@@ -18,12 +19,13 @@ public class CustomListView {
      * @param time: departure time
      * @param duration: trip duration
      */
-    public CustomListView(int trip_id, String name, String seats, String time, String duration) {
+    public CustomListView(int trip_id, String name, String seats, String time, String duration, String json) {
         mtrip_id = trip_id;
         mname = name;
         mseats = seats;
         mtime = time;
         mduration = duration;
+        mjson = json;
     }
 
     public void setTrip_id (int trip_id) {
@@ -46,6 +48,11 @@ public class CustomListView {
         mduration = dur;
     }
 
+    public void setJSON (String json) {
+        mjson = json;
+    }
+
+
     public int getTripId () {
         return mtrip_id;
     }
@@ -65,4 +72,6 @@ public class CustomListView {
     public String getTripDur () {
         return mduration;
     }
+
+    public String getJSON() { return mjson; }
 }

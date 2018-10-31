@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,8 +80,8 @@ public class TripSearchResult extends AppCompatActivity {
         ////////////////////
 
         RequestQueue mQueue;
-        String url = "http://192.168.0.141:8080/trips/search"
-        //String url = "https://ecse321-group7.herokuapp.com/trips/search"
+        //String url = "http://192.168.0.141:8080/trips/search"
+        String url = "https://ecse321-group7.herokuapp.com/trips/search"
                + "?dep=" + dept_loc
                + "&dest=" + dest_loc
                + "&date=" + dept_date
@@ -103,7 +104,12 @@ public class TripSearchResult extends AppCompatActivity {
                     else {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject data = response.getJSONObject(i);
-                            CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"), data.getString("seats_available"), data.getString("departure_time"), data.getJSONArray("durations").getString(0) + " hours");
+                            CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"),
+                                    data.getString("seats_available"),
+                                    data.getString("departure_time"),
+                                    data.getJSONArray("durations").getString(0) + " hours",
+                                    data.toString()
+                            );
                             listItems.add(item);
                         }
                     }
@@ -114,6 +120,7 @@ public class TripSearchResult extends AppCompatActivity {
                 // export stuffs into listview
                 CustomListViewAdapter adapter = new CustomListViewAdapter(TripSearchResult.this, R.layout.list_result_item, listItems);
                 list_view.setAdapter(adapter);
+                list_view.setOnItemClickListener(onItemClickListener);
             }
         };
 
@@ -134,4 +141,19 @@ public class TripSearchResult extends AppCompatActivity {
 
         mQueue.add(new JsonArrayRequest(Request.Method.POST, url, null, JSONListener, errorListener));
     }
+
+
+    private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            // retrieve the item
+            ListView listView = (ListView)parent;
+            CustomListView item = (CustomListView)listView.getItemAtPosition(position);
+
+            Intent OpenDetails = new Intent(TripSearchResult.this, Trip_Details.class);
+            OpenDetails.putExtra("json",item.getJSON());
+            startActivity(OpenDetails);
+        }
+    };
+
 }
