@@ -10,6 +10,15 @@ NOTE:
 
 ### Changelog
 
+Oct. 30, 2018: (Android, Passenger) Sign Up Page functionality added, toolbar layour restructuring
+- Back end connectivity was added to the sign up page so that it adds a new user to the database
+- Note that we still need to check to make sure that their email is unique on signup
+- Changed how the menu bar/toolbar works for all layouts: made it not show the toolbar by default in the manifest (as it was resulting in a double)
+- Added the toolbar manually to each content layout file and removed from the activity layout files
+- Toolbar can now be given titles and buttons at the top
+- Button added on the Trip Search page in the top right corner to go to the profile page (however mem issues are preventing it from working at the moment)
+- Log in or sign up now brings the user to the trip search page first
+
 Oct. 29, 2018: (Android, Passenger) Completed user login
 - The login view now operates with backend to perform user authentiction. 
 - For successful attempt, the app transitions to the profile view. Otherwise, stays in the login view. 
