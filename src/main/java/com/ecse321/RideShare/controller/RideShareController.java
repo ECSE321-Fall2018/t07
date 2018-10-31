@@ -243,6 +243,15 @@ public class RideShareController {
 				value += list.get(i).values().toString();
 			}
 			
+			
+			
+			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+			System.out.println(value);
+			
+			if (value.equals("null") ) {
+				return "[]";
+			}
+			
 			return value;
 		}
 		else {

@@ -1,5 +1,8 @@
 package ca.mcgill.ecse321.ecse321_group7;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -54,23 +58,34 @@ public class TripSearchResult extends AppCompatActivity {
 
 
         // Set up header
-        date.setText(dept_date);
         dep_loc.setText(dept_loc);
-        arr_loc.setText(dest_loc);
+
+        if (dept_date.isEmpty()) {
+            date.setText("Any departure date");
+        }
+        else {
+            date.setText(dept_date);
+        }
+
+        if (dest_loc.isEmpty()) {
+            arr_loc.setText("Anywhere");
+        }
+        else {
+            arr_loc.setText(dest_loc);
+        }
 
 
         // Obtain search result using Volley
         ////////////////////
 
         RequestQueue mQueue;
-        String url = "https://ecse321-group7.herokuapp.com/trips/search?dep=" + dept_loc;
-                //"&dest=" + dest_loc +
-                //"&date=" + dept_date +
-                //"&seats=" + seats +
-                //"&sortBy=0";
-
-        System.out.println(url);
-
+        String url = "http://192.168.0.141:8080/trips/search"
+        //String url = "https://ecse321-group7.herokuapp.com/trips/search"
+               + "?dep=" + dept_loc
+               + "&dest=" + dest_loc
+               + "&date=" + dept_date
+               + "&seats=" + seats
+               + "&sortBy=0";
 
         mQueue = Volley.newRequestQueue(TripSearchResult.this);
 
@@ -79,12 +94,19 @@ public class TripSearchResult extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 // JSONObject has to be dealt with try-catch else compile error
                 try {
-                    for (int i = 0; i < response.length(); i++) {
-                        JSONObject data = response.getJSONObject(i);
-                        CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"), data.getString("seats_available"), data.getString("departure_time"), data.getJSONArray("durations").getString(0) + " hours");
-                        listItems.add(item);
-                    }
+                    System.out.println("Response Length:" + response.length());
 
+                    if (response.isNull(0)) {   // If null then show dialog for not found
+                        myDialogFragment dialog = new myDialogFragment();
+                        dialog.show(getFragmentManager(), "notfound");
+                    }
+                    else {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject data = response.getJSONObject(i);
+                            CustomListView item = new CustomListView(i, data.getString("firstname") + " " + data.getString("lastname"), data.getString("seats_available"), data.getString("departure_time"), data.getJSONArray("durations").getString(0) + " hours");
+                            listItems.add(item);
+                        }
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
