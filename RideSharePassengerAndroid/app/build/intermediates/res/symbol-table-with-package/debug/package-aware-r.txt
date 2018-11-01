@@ -1082,7 +1082,6 @@ id barrier
 id beginning
 id blocking
 id bottom
-id bottomNameBar
 id bottomProfileBar
 id buttonPanel
 id center
@@ -1234,6 +1233,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id sortSpinner
 id spacer
 id split_action_bar
 id spread
@@ -1257,6 +1257,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView10
+id textView11
 id textView12
 id textView13
 id textView14

@@ -134,7 +134,7 @@ public class Trip_Details extends AppCompatActivity {
         depDateTV.setText("Departure Date: " + depDate);
         depLocTV.setText(capitalizeFirstLetter(depLoc));
         arrLocTV.setText(capitalizeFirstLetter(destinationArray.get(destinationsLength-1)));
-        vehicleInfoTV.setText("Vehicle Info: " + vehicleInfo);
+        vehicleInfoTV.setText("Vehicle:\n" + vehicleInfo);
         seatsTV.setText(seats + " Seats Left");
         commentsTV.setText(comments);
         driverNameTV.setText(capitalizeFirstLetter(firstName) + " " + capitalizeFirstLetter(lastName));

@@ -11,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TripSearchResult extends AppCompatActivity {
     private TextView date;
@@ -41,6 +45,15 @@ public class TripSearchResult extends AppCompatActivity {
 
     private ArrayList<CustomListView> listItems = new ArrayList<>();
 
+    private List<String> sortSpinnerOptions = new ArrayList<>(Arrays.asList("Departure Time", "Price", "Available Seats", "Total Duration"));
+    private ArrayAdapter<String> sortSpinnerAdapter;
+    private Spinner sortSpinner;
+
+    private String dept_date;
+    private String dept_loc;
+    private String dest_loc;
+    private int seats;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +66,18 @@ public class TripSearchResult extends AppCompatActivity {
         arr_loc = findViewById(R.id.ArrivalLoc);
         list_view = this.findViewById(R.id.myListView);
 
+        sortSpinner = (Spinner) findViewById(R.id.sortSpinner);
+        sortSpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sortSpinnerOptions);
+        sortSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(sortSpinnerAdapter);
+
         //////////////
         // Receive the arguments from previous activity here
         Intent intent = getIntent();
-        String dept_date = intent.getStringExtra("Date");
-        String dept_loc = intent.getStringExtra("Dept");
-        String dest_loc = intent.getStringExtra("Dest");
-        int seats = intent.getIntExtra("Seats", 1);
+        dept_date = intent.getStringExtra("Date");
+        dept_loc = intent.getStringExtra("Dept");
+        dest_loc = intent.getStringExtra("Dest");
+        seats = intent.getIntExtra("Seats", 1);
         userID = intent.getIntExtra("userID", -1);
         /////////////
 
@@ -84,15 +102,54 @@ public class TripSearchResult extends AppCompatActivity {
 
         // Obtain search result using Volley
         ////////////////////
+        //generateSearchResults(0);
 
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                if(selectedItem.equals("Departure Time"))
+                {
+                    listItems.clear();
+                    list_view.setAdapter(null);
+                    generateSearchResults(0);
+                }
+                else if(selectedItem.equals("Price")) {
+                    listItems.clear();
+                    list_view.setAdapter(null);
+                    generateSearchResults(1);
+                }
+                else if(selectedItem.equals("Available Seats")) {
+                    listItems.clear();
+                    list_view.setAdapter(null);
+                    generateSearchResults(2);
+                }
+                else if(selectedItem.equals("Total Duration")) {
+                    listItems.clear();
+                    list_view.setAdapter(null);
+                    generateSearchResults(3);
+                }
+            } // to close the onItemSelected
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+
+
+    }
+
+
+    private void generateSearchResults(int sort) {
         RequestQueue mQueue;
         //String url = "http://192.168.0.141:8080/trips/search"
         String url = "https://ecse321-group7.herokuapp.com/trips/search"
-               + "?dep=" + dept_loc
-               + "&dest=" + dest_loc
-               + "&date=" + dept_date
-               + "&seats=" + seats
-               + "&sortBy=0";
+                + "?dep=" + dept_loc
+                + "&dest=" + dest_loc
+                + "&date=" + dept_date
+                + "&seats=" + seats
+                + "&sortBy=" + sort;
 
         mQueue = Volley.newRequestQueue(TripSearchResult.this);
 
@@ -110,10 +167,11 @@ public class TripSearchResult extends AppCompatActivity {
                     else {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject data = response.getJSONObject(i);
+                            int arrLength = data.getJSONArray("durations").length();
                             CustomListView item = new CustomListView(i, capitalizeFirstLetter(data.getString("firstname")) + " " + capitalizeFirstLetter(data.getString("lastname")),
                                     data.getString("seats_available"),
                                     data.getString("departure_time"),
-                                    data.getJSONArray("durations").getString(0) + " hours",
+                                    data.getJSONArray("durations").getString(arrLength-1) + " hours",
                                     data.toString()
                             );
                             listItems.add(item);
@@ -147,7 +205,6 @@ public class TripSearchResult extends AppCompatActivity {
 
         mQueue.add(new JsonArrayRequest(Request.Method.POST, url, null, JSONListener, errorListener));
     }
-
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override

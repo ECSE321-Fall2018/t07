@@ -55,18 +55,6 @@ public class Trip_Search extends AppCompatActivity {
 
         depart_time = this.findViewById(R.id.departure_date_input);
 
-        /*
-        profileButton = findViewById(R.id.profileButton);
-
-        profileButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent JumpToProfilePage = new Intent(Trip_Search.this, Profile_page.class);
-                startActivity(JumpToProfilePage);
-            }
-        });
-        */
-
         //////////////
         // Receive the userid value from User_login here
 

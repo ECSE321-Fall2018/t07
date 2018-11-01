@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/destinationBox"
-            android:layout_width="wrap_content"
+            android:layout_width="224dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="left|center_vertical"
             android:text="xh xxm"
             android:textSize="20sp" />
 
@@ -39,7 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right|center_vertical"
+            android:paddingRight="15dp"
             android:text="$xx"
             android:textSize="20sp" />
     </LinearLayout>
