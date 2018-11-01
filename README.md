@@ -9,6 +9,12 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 1, 2018: (Android, Passenger) Added Ability To Sort Trip Search
+- Now on the Trip Search page there is a box with a spinner that allows you to change between different sorting modes
+- These include departure time, price, available seats and total duration
+- Selecting one will immediately update the listview below it
+- Also some minor bug fixes and layout updates
+
 OCt. 31, 2018: (Android, Passenger) Trip Details Page Fully Implemented
 - Now when in the trip search results page and you select one of the displayed trips it brings you to the specific details for that trip
 - This page properly gathers all the backend data and displays it nicely for the user
