@@ -79,7 +79,7 @@ public class RideShareController {
 	
 	// search user_table based on id or name
 	@RequestMapping(path="/users/search", method=RequestMethod.POST)
-	public String user_search (ModelMap modelMap, @RequestParam(name="id", defaultValue= "") String userid, @RequestParam(name="keyword", defaultValue= "") String keyword) {
+	public String user_search (ModelMap modelMap, @RequestParam(name="id", defaultValue= "") String userid, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="email", defaultValue= "") String email) {
 		if (userid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectUser(Integer.parseInt(userid));
@@ -117,8 +117,20 @@ public class RideShareController {
 			
 			return value;
 		}
+		else if (email.isEmpty() == false) {
+			List<Map<String,Object>> list;
+			String query = "select to_json (user_table) from user_table WHERE email='" + email + "'";
+			list = service.executeSQL(query);
+			
+			if (list.size() == 0) {
+				return "valid";
+			}
+			else {
+				return "invalid";
+			}
+		}
 		else {
-			return "Usage: Send a POST request to \"/users/search?id={id}\" or \"/users/search?keyword={name}\"";
+			return "Usage: Send a POST request to \"/users/search?id={id}\" or \"/users/search?keyword={name}\" or \"/users/search?email={email}\"";
 		}
 	}
 	
