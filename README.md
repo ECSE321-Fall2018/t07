@@ -14,6 +14,7 @@ Oct. 31, 2018: (Android, Passenger) TripSearchResults functionality added. Trip_
 - ListView shows the search result. Sorting functionality yet to be added. 
 - Modified some SQL command of the backend to return the matching row from BOTH trip_table and user_table. 
 - TripSearchResult passes the corresponding JSON data (for the one pressed down) to Trip_Details as an argument, so just use JSONObjects command to pull out whatever data you need.
+- Profile page is able to show personal information.
 
 Oct. 30, 2018: (Android, Passenger) Sign Up Page functionality added, toolbar layour restructuring
 - Back end connectivity was added to the sign up page so that it adds a new user to the database
