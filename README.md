@@ -9,6 +9,14 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 1, 2018: (Android, Passenger, Backend) Added Email Uniqueness Check on Login
+- Since we are using email and password for logging in, then the email needs to be unique
+- Added backend functionality to the /users/search REST endpoint that allows searching for email
+- This endpoint returns "valid" if there are no others, and "invalid" if that email already exists
+- On the android sign up page when pressing sign up it now first checks for validity
+- If it is not a valid email address a small pop up says that it is already taken
+- Also added 2 JUnit tests to check helper functions
+
 Nov. 1, 2018: (Android, Passenger) Added Ability To Sort Trip Search
 - Now on the Trip Search page there is a box with a spinner that allows you to change between different sorting modes
 - These include departure time, price, available seats and total duration
