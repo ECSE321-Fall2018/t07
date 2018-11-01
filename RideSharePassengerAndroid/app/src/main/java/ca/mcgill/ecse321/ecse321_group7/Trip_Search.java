@@ -69,10 +69,11 @@ public class Trip_Search extends AppCompatActivity {
 
         //////////////
         // Receive the userid value from User_login here
+        /*
         Intent i = getIntent();
         myUserid = i.getIntExtra("userid", -1);
         Toast.makeText(Trip_Search.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
-        //System.out.println("My Userid: " + myUserid);
+        //System.out.println("My Userid: " + myUserid);*/
         /////////////
 
         searchButton.setOnClickListener(new View.OnClickListener(){
@@ -107,6 +108,7 @@ public class Trip_Search extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.profilePageMenu:
                 Intent GoToProfile = new Intent(Trip_Search.this,Profile_page.class);
+                GoToProfile.putExtra("userid",myUserid);  // passing the argument
                 startActivityForResult(GoToProfile, 0);
                 return true;
 
