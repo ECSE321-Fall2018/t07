@@ -172,13 +172,41 @@ public class RideShareController {
 	@RequestMapping(path="/trips/search", method=RequestMethod.POST)
 	public String trip_search(ModelMap modelMap, @RequestParam(name="id", defaultValue= "") String tripid, @RequestParam(name="dep", defaultValue="") String departure, 
 			@RequestParam(name="dest", defaultValue="") String destination, @RequestParam(name="date", defaultValue="") String date, 
-			@RequestParam(name="seats", defaultValue="") String seats, @RequestParam(name="sortBy", defaultValue="") String sortBy) {
+			@RequestParam(name="seats", defaultValue="") String seats, @RequestParam(name="sortBy", defaultValue="") String sortBy, @RequestParam(name="passengerid", defaultValue="") String passengerid) {
 		if (tripid.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			list = service.selectTrip(Integer.parseInt(tripid));
 			String value = new String();
 			for (int i=0; i<list.size(); i++) {
 				value += list.get(i).values().toString();
+			}
+			
+			return value;
+		}
+		else if (passengerid.isEmpty() == false) {
+			
+			List<Map<String,Object>> list;
+			String query	= "WITH filtered AS (" + 
+					"  SELECT * FROM trip_table WHERE " + passengerid + " = ANY (trip_table.passenger_id) ORDER BY departure_time ASC" + 
+					"), final AS (" + 
+					"  SELECT * from filtered" + 
+					"  LEFT OUTER JOIN user_table " + 
+					"  ON filtered.driver_id = user_table.userid" + 
+					")" + 
+					"SELECT array_to_json(array_agg(final)) FROM final";
+
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+			System.out.println(value);
+			
+			if (value.equals("null") ) {
+				return "[]";
 			}
 			
 			return value;
