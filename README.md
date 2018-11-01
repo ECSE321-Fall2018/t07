@@ -9,6 +9,13 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+OCt. 31, 2018: (Android, Passenger) Trip Details Page Fully Implemented
+- Now when in the trip search results page and you select one of the displayed trips it brings you to the specific details for that trip
+- This page properly gathers all the backend data and displays it nicely for the user
+- There is a Join Trip button that allows them to be added onto the passengers list in the back end
+- If they are already on the list it will know and display as Leave Trip button which will allow them to leave
+- Home button added in corner that directs you back to the search page
+- The user ID is properly transferred around between all pages so that you always have access to it
 
 Oct. 31, 2018: (Android, Passenger) TripSearchResults functionality added. Trip_Details functionality specimen added. 
 - ListView shows the search result. Sorting functionality yet to be added. 
