@@ -37,6 +37,8 @@ public class TripSearchResult extends AppCompatActivity {
     private TextView arr_time;
     private ListView list_view;
 
+    private int userID;
+
     private ArrayList<CustomListView> listItems = new ArrayList<>();
 
     @Override
@@ -58,6 +60,7 @@ public class TripSearchResult extends AppCompatActivity {
         String dept_loc = intent.getStringExtra("Dept");
         String dest_loc = intent.getStringExtra("Dest");
         int seats = intent.getIntExtra("Seats", 1);
+        userID = intent.getIntExtra("userID", -1);
         /////////////
 
 
@@ -155,6 +158,7 @@ public class TripSearchResult extends AppCompatActivity {
 
             Intent OpenDetails = new Intent(TripSearchResult.this, Trip_Details.class);
             OpenDetails.putExtra("json",item.getJSON());
+            OpenDetails.putExtra("userID", userID);
             startActivity(OpenDetails);
         }
     };

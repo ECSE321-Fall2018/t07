@@ -86,6 +86,7 @@ public class Trip_Search extends AppCompatActivity {
                     OpenResult.putExtra("Dept",departure.getText().toString());  // passing the argument
                     OpenResult.putExtra("Dest",destination.getText().toString());  // passing the argument
                     OpenResult.putExtra("Seats",seatsSpinner.getSelectedItemPosition()+1);
+                    OpenResult.putExtra("userID", myUserid);
 
                     startActivity(OpenResult);
                 }

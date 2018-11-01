@@ -206,14 +206,4 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/profileButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@color/background"
-        android:scaleType="centerCrop"
-        android:visibility="invisible"
-        app:srcCompat="@drawable/img_295110"
-        tools:layout_editor_absoluteY="56dp" />
-
 </android.support.constraint.ConstraintLayout>
