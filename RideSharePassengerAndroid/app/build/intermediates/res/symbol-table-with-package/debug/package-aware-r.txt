@@ -1038,10 +1038,13 @@ id LogIn
 id META
 id MainSignUp
 id Password
-id ProfilePage
+id Past
+id Profile_email
+id Rating
 id SHIFT
 id SYM
 id SignUp
+id Your_Trips
 id _depTime
 id _drivname
 id _duration
@@ -1123,6 +1126,7 @@ id filled
 id firstname
 id fixed
 id forever
+id fullName
 id ghost_view
 id gone
 id group_divider
@@ -1134,6 +1138,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id imageView3
 id info
 id invisible
@@ -1179,6 +1184,7 @@ id phone_no
 id pin
 id profileButton
 id profilePageMenu
+id profile_phone
 id progress_circular
 id progress_horizontal
 id radio
@@ -1267,6 +1273,7 @@ id transition_transform
 id uniform
 id unlabeled
 id up
+id upcoming
 id useLogo
 id view_offset_helper
 id visible
@@ -1428,6 +1435,7 @@ string newevent_date_first
 string newevent_date_label
 string password
 string password_toggle_content_description
+string past
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
@@ -1438,6 +1446,8 @@ string title_activity_profile_page
 string title_activity_trip_search
 string title_activity_user__signup
 string title_activity_user_login
+string upcoming
+string yourtrips
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
