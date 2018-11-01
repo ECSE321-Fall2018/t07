@@ -1082,6 +1082,8 @@ id barrier
 id beginning
 id blocking
 id bottom
+id bottomNameBar
+id bottomProfileBar
 id buttonPanel
 id center
 id center_horizontal
@@ -1100,6 +1102,7 @@ id custom
 id customPanel
 id decor_content_parent
 id default_activity_button
+id depTimeText
 id departure_date_input
 id departure_input
 id design_bottom_sheet
@@ -1107,10 +1110,16 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id destinationBox
 id destination_input
+id detailsListView
 id dimensions
 id direct
 id disableHome
+id driverCommentsField
+id driverNameField
+id driverRatingField
+id durationBox
 id edit_query
 id email
 id end
@@ -1139,11 +1148,13 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView2
 id imageView3
 id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id joinTripButton
 id labeled
 id largeLabel
 id lastname
@@ -1182,12 +1193,13 @@ id password
 id percent
 id phone_no
 id pin
-id profileButton
+id priceBox
 id profilePageMenu
 id profile_phone
 id progress_circular
 id progress_horizontal
 id radio
+id remainingSeatsText
 id right
 id right_icon
 id right_side
@@ -1246,6 +1258,8 @@ id textStart
 id textView
 id textView10
 id textView12
+id textView13
+id textView14
 id textView2
 id textView3
 id textView4
@@ -1275,6 +1289,7 @@ id unlabeled
 id up
 id upcoming
 id useLogo
+id vehicleInfo
 id view_offset_helper
 id visible
 id withText
@@ -1334,6 +1349,7 @@ layout activity_user__signup
 layout activity_user_login
 layout content_main
 layout content_profile_page
+layout content_trip_details
 layout content_trip_search
 layout content_tripsearchresult
 layout content_user__signup
@@ -1364,6 +1380,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout trip_details_list_item
 layout user_login
 menu menu_main
 menu profile_option

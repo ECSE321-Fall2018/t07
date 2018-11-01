@@ -214,11 +214,13 @@ public class Trip_Details extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.profilePageMenu:
                 Intent GoToProfile = new Intent(Trip_Details.this,Profile_page.class);
+                GoToProfile.putExtra("userid",userID);
                 startActivityForResult(GoToProfile, 0);
                 return true;
 
             case R.id.homeMenuButton:
                 Intent GoToSearch = new Intent(Trip_Details.this,Trip_Search.class);
+                GoToSearch.putExtra("userid",userID);
                 startActivityForResult(GoToSearch, 0);
                 //Should send userID when we figure out the global way to do this
                 return true;

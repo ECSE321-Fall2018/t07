@@ -45,9 +45,9 @@ public class Profile_page extends AppCompatActivity {
 
         //////////////
         // Receive the userid value from User_login here
-        /*Intent i = getIntent();
+        Intent i = getIntent();
         myUserid = i.getIntExtra("userid", -1);
-        Toast.makeText(Profile_page.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();*/
+        Toast.makeText(Profile_page.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
         //System.out.println("My Userid: " + myUserid);
         /////////////
 
@@ -124,6 +124,7 @@ public class Profile_page extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.homeMenuButton:
                 Intent GoToSearch = new Intent(Profile_page.this,Trip_Search.class);
+                GoToSearch.putExtra("userid",myUserid);
                 startActivityForResult(GoToSearch, 0);
                 //Should send userID when we figure out the global way to do this
                 return true;

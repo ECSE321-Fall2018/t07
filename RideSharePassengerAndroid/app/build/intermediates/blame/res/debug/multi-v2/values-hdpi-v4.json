@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\admin\\clonefolder\\t07\\RideSharePassengerAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\c0f57bbe994909ed7e5bc592e6ccf06c\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "/Users/RyanDotsikas/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3ce32686eb9df9a33204fb673aa08db5/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
