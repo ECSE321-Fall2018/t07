@@ -62,36 +62,70 @@ public class User_Signup extends AppCompatActivity {
             public void onClick(View view){
                 if(ToReject(Email) || ToReject(FirstName) || ToReject(LastName) || ToReject(Phone_no) || ToReject(Password))
                     Toast.makeText(User_Signup.this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
-                else if(checkPhoneNumber(Phone_no)) {
+                else if(checkPhoneNumber(Phone_no.getText().toString())) {
                     Toast.makeText(User_Signup.this, "Enter a valid phone number", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    // Handling Login using Volley
-                    ////////////////////
-                    RequestQueue mQueue;
-                    String url = "https://ecse321-group7.herokuapp.com/users/create?firstName=" + FirstName.getText().toString() + "&lastName=" + LastName.getText().toString()
-                            + "&email=" + Email.getText().toString() + "&phoneNumber=" + Phone_no.getText().toString().replace("-", "") + "&password=" + Password.getText().toString();
-                    mQueue = Volley.newRequestQueue(User_Signup.this);
-
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                // Display the first 500 characters of the response string.
-                                Toast.makeText(User_Signup.this, response, Toast.LENGTH_SHORT).show();
-                                Intent GoToLogin = new Intent(User_Signup.this, User_login.class);
-                                startActivity(GoToLogin);
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(User_Signup.this, "That didn't work!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    // Add the request to the RequestQueue.
-                    mQueue.add(stringRequest);
+                    //First runs this which checks for uniqueness of the email
+                    //If it is valid it will then run the addUserToDB() method which signs them up
+                    checkEmailInDB();
                 }
             }
         });
+    }
+
+    //Check email uniqueness in table
+    private void checkEmailInDB() {
+        RequestQueue mQueue;
+        String url = "https://ecse321-group7.herokuapp.com/users/search?email=" + Email.getText().toString();
+        mQueue = Volley.newRequestQueue(User_Signup.this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                System.out.println(response);
+                if (response.trim().equals("valid")) {
+                    addUserToDB();
+                }
+                else {
+                    Toast.makeText(User_Signup.this, "That email already exists.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(User_Signup.this, "That didn't work!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // Add the request to the RequestQueue.
+        mQueue.add(stringRequest);
+    }
+
+    //Sign up the user by adding them to the user table
+    private void addUserToDB() {
+        // Handling Login using Volley
+        ////////////////////
+        RequestQueue mQueue;
+        String url = "https://ecse321-group7.herokuapp.com/users/create?firstName=" + FirstName.getText().toString() + "&lastName=" + LastName.getText().toString()
+                + "&email=" + Email.getText().toString() + "&phoneNumber=" + Phone_no.getText().toString().replace("-", "") + "&password=" + Password.getText().toString();
+        mQueue = Volley.newRequestQueue(User_Signup.this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Display the first 500 characters of the response string.
+                Toast.makeText(User_Signup.this, response, Toast.LENGTH_SHORT).show();
+                Intent GoToLogin = new Intent(User_Signup.this, User_login.class);
+                startActivity(GoToLogin);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(User_Signup.this, "That didn't work!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // Add the request to the RequestQueue.
+        mQueue.add(stringRequest);
     }
 
     //!!Have problem import user_login class
@@ -101,9 +135,8 @@ public class User_Signup extends AppCompatActivity {
         return rejected;
     }
 
-    public boolean checkPhoneNumber(EditText number) {
+    public static boolean checkPhoneNumber(String str) {
         boolean rejected = false;
-        String str = number.getText().toString();
         str = str.replace("-", "");
         if (str.length() != 10) rejected = true;
         if (!str.matches("[0-9]+")) rejected = true;

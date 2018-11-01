@@ -249,7 +249,7 @@ public class TripSearchResult extends AppCompatActivity {
     }
 
     //Quick method that capitlizes the first letter of the string so we can take our entirely lower case data and display it nicely
-    private String capitalizeFirstLetter(String original) {
+    public static String capitalizeFirstLetter(String original) {
         if (original == null || original.length() == 0) {
             return original;
         }
