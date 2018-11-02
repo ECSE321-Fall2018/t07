@@ -78,7 +78,7 @@ public class Trip_Details extends AppCompatActivity {
         depTimeTV = findViewById(R.id.depTimeText);
         list_view = findViewById(R.id.detailsListView);
         joinLeaveTrip = findViewById(R.id.joinTripButton);
-        joinLeaveTrip.setText("Join Trip");
+        joinLeaveTrip.setText("EDIT TRIP");
 
         /////////////
         // Receive the arguments from previous activity here
@@ -149,58 +149,22 @@ public class Trip_Details extends AppCompatActivity {
         CustomDetailsListViewAdapter adapter = new CustomDetailsListViewAdapter(Trip_Details.this, R.layout.trip_details_list_item, listItems);
         list_view.setAdapter(adapter);
 
+        final String jsonToPass = trip_data.toString();
+
         joinLeaveTrip.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                RequestQueue mQueue;
-                if (!alreadyInTrip) {
-                    String url = "https://ecse321-group7.herokuapp.com/trips/join?userID=" + userID
-                            + "&tripID=" + tripID;
-                    mQueue = Volley.newRequestQueue(Trip_Details.this);
-
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Toast.makeText(Trip_Details.this, response, Toast.LENGTH_SHORT).show();
-                            joinLeaveTrip.setText("Leave Trip");
-                            alreadyInTrip = true;
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(Trip_Details.this, "That didn't work!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    // Add the request to the RequestQueue.
-                    mQueue.add(stringRequest);
-                }
-                else {
-                    String url = "https://ecse321-group7.herokuapp.com/trips/leave?userID=" + userID
-                            + "&tripID=" + tripID;
-                    mQueue = Volley.newRequestQueue(Trip_Details.this);
-
-                    StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Toast.makeText(Trip_Details.this, response, Toast.LENGTH_SHORT).show();
-                            joinLeaveTrip.setText("Join Trip");
-                            alreadyInTrip = false;
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(Trip_Details.this, "That didn't work!", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    // Add the request to the RequestQueue.
-                    mQueue.add(stringRequest);
-                }
+                //
+                // After finishing createtrip, we can modify that to make edittrip.
+                //
+                Intent GoToEditTrip = new Intent(Trip_Details.this,Trip_Edit.class);
+                GoToEditTrip.putExtra("json",jsonToPass);
+                startActivityForResult(GoToEditTrip, 0);
             }
         });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

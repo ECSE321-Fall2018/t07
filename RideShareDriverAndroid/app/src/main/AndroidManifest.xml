@@ -48,6 +48,10 @@
             android:label="Trip_Details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Trip_Edit"
+            android:label="Trip_Edit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Trip_Create"
             android:label="Trip_Create"
             android:theme="@style/AppTheme.NoActionBar"

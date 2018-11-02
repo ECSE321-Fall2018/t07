@@ -100,7 +100,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="50dp"
                 android:layout_weight="1"
-                android:text="Join Trip"
+                android:text="EDIT\nTRIP"
                 android:textSize="16sp" />
 
             <LinearLayout
