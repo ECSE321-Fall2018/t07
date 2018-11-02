@@ -159,6 +159,7 @@ public class Trip_Details extends AppCompatActivity {
                 //
                 Intent GoToEditTrip = new Intent(Trip_Details.this,Trip_Edit.class);
                 GoToEditTrip.putExtra("json",jsonToPass);
+                GoToEditTrip.putExtra("userID", userID);
                 startActivityForResult(GoToEditTrip, 0);
             }
         });
@@ -183,9 +184,9 @@ public class Trip_Details extends AppCompatActivity {
                 return true;
 
             case R.id.homeMenuButton:
-                Intent GoToSearch = new Intent(Trip_Details.this,Trip_Search.class);
-                GoToSearch.putExtra("userid",userID);
-                startActivityForResult(GoToSearch, 0);
+                Intent GoToCreate = new Intent(Trip_Details.this,Trip_Create.class);
+                GoToCreate.putExtra("userid",userID);
+                startActivityForResult(GoToCreate, 0);
                 //Should send userID when we figure out the global way to do this
                 return true;
 

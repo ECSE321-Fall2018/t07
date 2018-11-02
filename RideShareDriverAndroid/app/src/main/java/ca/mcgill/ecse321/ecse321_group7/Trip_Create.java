@@ -72,7 +72,7 @@ public class Trip_Create extends AppCompatActivity {
 
         Intent i = getIntent();
         myUserid = i.getIntExtra("userid", -1);
-        Toast.makeText(Trip_Create.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Trip_Create.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
         //System.out.println("My Userid: " + myUserid);
         /////////////
 
@@ -94,8 +94,10 @@ public class Trip_Create extends AppCompatActivity {
         removeDestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                listItems.remove(listItems.size()-1);
-                adapter.notifyDataSetChanged();
+                if (listItems.size()>0) {
+                    listItems.remove(listItems.size()-1);
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
 
@@ -158,16 +160,17 @@ public class Trip_Create extends AppCompatActivity {
         String url = "https://ecse321-group7.herokuapp.com/trips/create?driverID=" + myUserid + "&driverEmail=NA&driverPhone=NA&date=" + depart_date.getText().toString()
                 + "&depTime=" + depart_time.getText().toString() + "&depLocation=" + departure.getText().toString() + "&destinations=" + destStr
                 + "&tripDurations=" + durStr + "&prices=" + priceStr + "&seats=" + availableSeats.getText().toString() + "&vehicleType=" + vehicleInfo.getText().toString()
-                + "&licensePlate=" + licensePlate.getText().toString() + "&comments=" + comments.getText().toString();
+                + "&licensePlate=" + licensePlate.getText().toString() + "&comments=" + comments.getText().toString().replaceAll("\'","");
         mQueue = Volley.newRequestQueue(Trip_Create.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(Trip_Create.this, response, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Trip_Create.this, response, Toast.LENGTH_SHORT).show();
                 //GO TO THE SPECIFIC DRIVER TRIP DETAILS PAGE
-                //Intent GoToLogin = new Intent(Trip_Create.this, User_login.class);
-                //startActivity(GoToLogin);
+                Intent GoToProfile = new Intent(Trip_Create.this, Profile_page.class);
+                GoToProfile.putExtra("userid",myUserid);
+                startActivity(GoToProfile);
             }
         }, new Response.ErrorListener() {
             @Override

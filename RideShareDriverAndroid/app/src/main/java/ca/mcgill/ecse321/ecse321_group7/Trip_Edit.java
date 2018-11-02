@@ -91,6 +91,7 @@ public class Trip_Edit extends AppCompatActivity {
 
         Intent intent = getIntent();
         String json_str = intent.getStringExtra("json");
+        myUserid = intent.getIntExtra("userID", -1);
         JSONObject trip_data = null;
         try {
             trip_data  = new JSONObject(json_str);
@@ -157,8 +158,10 @@ public class Trip_Edit extends AppCompatActivity {
         removeDestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                listItems.remove(listItems.size()-1);
-                adapter.notifyDataSetChanged();
+                if (listItems.size()>0) {
+                    listItems.remove(listItems.size()-1);
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
 
@@ -221,16 +224,17 @@ public class Trip_Edit extends AppCompatActivity {
         String url = "https://ecse321-group7.herokuapp.com/trips/modify?tripID=" + otripID + "&driverEmail=NA&driverPhone=NA&date=" + depart_date.getText().toString()
                 + "&depTime=" + depart_time.getText().toString() + "&depLocation=" + departure.getText().toString() + "&destinations=" + destStr
                 + "&tripDurations=" + durStr + "&prices=" + priceStr + "&seats=" + availableSeats.getText().toString() + "&vehicleType=" + vehicleInfo.getText().toString()
-                + "&licensePlate=" + licensePlate.getText().toString() + "&comments=" + comments.getText().toString();
+                + "&licensePlate=" + licensePlate.getText().toString() + "&comments=" + comments.getText().toString().replaceAll("\'","");
         mQueue = Volley.newRequestQueue(Trip_Edit.this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(Trip_Edit.this, response, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Trip_Edit.this, response, Toast.LENGTH_SHORT).show();
                 //GO TO THE SPECIFIC DRIVER TRIP DETAILS PAGE
-                //Intent GoToLogin = new Intent(Trip_Create.this, User_login.class);
-                //startActivity(GoToLogin);
+                Intent GoToProfile = new Intent(Trip_Edit.this, Profile_page.class);
+                GoToProfile.putExtra("userid",myUserid);
+                startActivity(GoToProfile);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -316,7 +320,7 @@ public class Trip_Edit extends AppCompatActivity {
         Bundle args = getDateFromLabel(tf.getText().toString());
         args.putInt("id", v.getId());
 
-        DatePickerFragment newFragment = new DatePickerFragment();
+        DatePickerFragmentEDIT newFragment = new DatePickerFragmentEDIT();
         newFragment.setArguments(args);
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
@@ -326,7 +330,7 @@ public class Trip_Edit extends AppCompatActivity {
         Bundle args = getTimeFromLabel(tf.getText().toString());
         args.putInt("id", v.getId());
 
-        TimePickerFragment newFragment = new TimePickerFragment();
+        TimePickerFragmentEDIT newFragment = new TimePickerFragmentEDIT();
         newFragment.setArguments(args);
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }

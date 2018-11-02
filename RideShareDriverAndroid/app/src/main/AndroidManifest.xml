@@ -50,7 +50,8 @@
         <activity
             android:name=".Trip_Edit"
             android:label="Trip_Edit"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".Trip_Create"
             android:label="Trip_Create"

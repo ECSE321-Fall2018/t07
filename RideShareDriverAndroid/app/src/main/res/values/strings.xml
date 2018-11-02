@@ -29,7 +29,7 @@
     <string name="seats_input">How many seats?</string>
     <string name="comments_input">Enter your comments here</string>
     <string name="newDestination">Where to?</string>
-    <string name="newDuration">How long?</string>
+    <string name="newDuration">How many hours?</string>
     <string name="newPrice">How much?</string>
     <string name="vehicleInfo">Help identify your car</string>
     <string name="licensePlate">License Plate Number</string>

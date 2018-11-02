@@ -58,7 +58,6 @@
                 android:hint="City of Departure"
                 android:inputType="textAutoCorrect"
                 android:paddingLeft="5dp"
-                android:text="Montreal"
                 android:textColor="@android:color/black" />
 
             <TextView
@@ -74,7 +73,6 @@
                 android:inputType="date"
                 android:onClick="showDatePickerDialog"
                 android:paddingLeft="5dp"
-                android:text="2018-11-19"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
 
@@ -90,7 +88,6 @@
                 android:inputType="textAutoCorrect"
                 android:onClick="showTimePickerDialog"
                 android:paddingLeft="5dp"
-                android:text="12:20:00"
                 android:textColor="@android:color/black" />
 
             <EditText
@@ -104,7 +101,6 @@
                 android:hint="@string/seats_input"
                 android:inputType="number"
                 android:paddingLeft="5dp"
-                android:text="2"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>
@@ -139,7 +135,6 @@
                 android:hint="Your vehicle type"
                 android:inputType="textAutoCorrect"
                 android:paddingLeft="5dp"
-                android:text="Bus"
                 android:textColor="@android:color/black" />
 
             <EditText
@@ -154,7 +149,6 @@
                 android:hint="Licence Plate #"
                 android:inputType="textAutoCorrect"
                 android:paddingLeft="5dp"
-                android:text="xxx"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>
@@ -183,7 +177,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/comments_input"
-            android:text="I got a big bus. "
             tools:layout_editor_absoluteX="36dp"
             tools:layout_editor_absoluteY="333dp" />
 
