@@ -20,12 +20,11 @@
 .gradle/
 gradle/
 build/
-local.properties
-build.gradle
 gradlew
 gradlew.bat
 settings.gradle
 *.iml
+
 
 
 ### NetBeans ###
