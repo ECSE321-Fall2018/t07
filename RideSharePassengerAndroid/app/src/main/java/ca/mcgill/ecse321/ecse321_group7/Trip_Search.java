@@ -60,7 +60,7 @@ public class Trip_Search extends AppCompatActivity {
 
         Intent i = getIntent();
         myUserid = i.getIntExtra("userid", -1);
-        Toast.makeText(Trip_Search.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Trip_Search.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
         //System.out.println("My Userid: " + myUserid);
         /////////////
 

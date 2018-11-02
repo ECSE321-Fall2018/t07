@@ -58,7 +58,7 @@ public class Profile_page extends AppCompatActivity {
         // Receive the userid value from User_login here
         Intent i = getIntent();
         myUserid = i.getIntExtra("userid", -1);
-        Toast.makeText(Profile_page.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Profile_page.this, "My User ID: " + myUserid, Toast.LENGTH_SHORT).show();
         //System.out.println("My Userid: " + myUserid);
         /////////////
 
@@ -138,7 +138,7 @@ public class Profile_page extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 // JSONObject has to be dealt with try-catch else compile error
                 try {
-                    Toast.makeText(Profile_page.this, "Response length: " + response.length(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Profile_page.this, "Response length: " + response.length(), Toast.LENGTH_SHORT).show();
 
                     if (response.isNull(0)) {   // If null then show dialog for not found
                         CustomListView item = new CustomListView(0, "You have no trip record. ",

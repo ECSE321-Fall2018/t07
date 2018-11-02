@@ -170,7 +170,6 @@
                 android:hint="@string/departure"
                 android:inputType="textAutoCorrect"
                 android:paddingLeft="5dp"
-                android:text="Montreal"
                 android:textColor="@android:color/black" />
 
             <EditText
