@@ -9,6 +9,12 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 2, 2018: (Android, Driver)
+- Trip_Create and Trip_Edit are now working. 
+- All functions are implemented and are working well at this point.  
+- Still need to optimize the design, more testing, etc.  
+
+
 Nov. 1, 2018: (Android, Passenger, Backend)
 - Added backend function to search based on driverid. 
 - Made some change on the data presentation on android app. 
