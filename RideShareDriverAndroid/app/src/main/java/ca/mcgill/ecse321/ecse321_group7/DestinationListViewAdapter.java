@@ -1,12 +1,15 @@
 package ca.mcgill.ecse321.ecse321_group7;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import java.util.List;
 
@@ -34,10 +37,40 @@ public class DestinationListViewAdapter  extends ArrayAdapter<DestinationListVie
             view = mInflater.inflate(mResource, null);
         }
 
-        // obtain that particular item
-        DestinationListView item = mItems.get(position);
+        final DestinationListView data = getItem(position);
 
+        EditText dest = (EditText)view.findViewById(R.id.newDestinationField);
+        dest.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    final EditText Caption = (EditText) v;
+                    String obtained = Caption.getText().toString();
+                    data.setDest(obtained);
+                }
+            }
+        });
 
+        EditText dur = (EditText)view.findViewById(R.id.newDurationField);
+        dur.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    final EditText Caption = (EditText) v;
+                    String obtained = Caption.getText().toString();
+                    data.setDur(obtained);
+                }
+            }
+        });
+
+        EditText pr = (EditText)view.findViewById(R.id.newPriceField);
+        pr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    final EditText Caption = (EditText) v;
+                    String obtained = Caption.getText().toString();
+                    data.setPrice(obtained);
+                }
+            }
+        });
 
         return view;
     }

@@ -118,22 +118,12 @@ public class Trip_Create extends AppCompatActivity {
                             priceStr += ", ";
                         }
 
-                        DestinationListViewAdapter adapt = (DestinationListViewAdapter)list_view.getAdapter();
-                        View viewDestList = (View)adapt.getView(i, null, list_view);
-                        //EditText destET = viewDestList.findViewById(R.id.newDestinationField);
-                        //EditText durET = viewDestList.findViewById(R.id.newDurationField);
-                        //EditText priceET = viewDestList.findViewById(R.id.newPriceField);
-                        String dest = adapt.getDest(viewDestList);
-                        String dur = adapt.getDur(viewDestList);
-                        String price = adapt.getPrice(viewDestList);
-                        /*
-                        if (!ToReject(destET.getText().toString()) && !ToReject(durET.getText().toString()) && !ToReject(priceET.getText().toString())) {
-                            destStr += destET.getText().toString();
-                            durStr += durET.getText().toString();
-                            priceStr += priceET.getText().toString();
-                            first = false;
-                        }
-                        */
+                        DestinationListView item = (DestinationListView)list_view.getItemAtPosition(i);
+                        String dest = item.getDest();
+                        String dur = item.getDur();
+                        String price = item.getPrice();
+
+
                         if (!ToReject(dest) && !ToReject(dur) && !ToReject(price)) {
                             destStr += dest;
                             durStr += dur;
