@@ -13,11 +13,19 @@
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# Android Studio
 .idea
 *.iws
-*.iml
 *.ipr
+.gradle/
+gradle/
+build/
+build.gradle
+gradlew
+gradlew.bat
+settings.gradle
+*.iml
+
 
 ### NetBeans ###
 /nbproject/private/
