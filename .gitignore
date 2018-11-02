@@ -18,8 +18,9 @@
 *.iws
 *.ipr
 .gradle/
-gradle/
-build/
+*/gradle/
+*/app/build/
+local.properties
 build.gradle
 gradlew
 gradlew.bat
