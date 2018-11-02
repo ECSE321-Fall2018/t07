@@ -38,8 +38,10 @@ public class DestinationListViewAdapter  extends ArrayAdapter<DestinationListVie
         }
 
         final DestinationListView data = getItem(position);
-
         EditText dest = (EditText)view.findViewById(R.id.newDestinationField);
+        EditText dur = (EditText)view.findViewById(R.id.newDurationField);
+        EditText pr = (EditText)view.findViewById(R.id.newPriceField);
+
         dest.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
@@ -50,7 +52,7 @@ public class DestinationListViewAdapter  extends ArrayAdapter<DestinationListVie
             }
         });
 
-        EditText dur = (EditText)view.findViewById(R.id.newDurationField);
+
         dur.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
@@ -61,7 +63,7 @@ public class DestinationListViewAdapter  extends ArrayAdapter<DestinationListVie
             }
         });
 
-        EditText pr = (EditText)view.findViewById(R.id.newPriceField);
+
         pr.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
@@ -71,6 +73,10 @@ public class DestinationListViewAdapter  extends ArrayAdapter<DestinationListVie
                 }
             }
         });
+
+        dest.setText(mItems.get(position).getDest());
+        dur.setText(mItems.get(position).getDur());
+        pr.setText(mItems.get(position).getPrice());
 
         return view;
     }
