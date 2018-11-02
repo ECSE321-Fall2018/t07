@@ -24,6 +24,7 @@
         android:id="@+id/_seatsleft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="x seats left"
         app:layout_constraintEnd_toEndOf="@+id/_drivname"
         app:layout_constraintHorizontal_bias="0.447"

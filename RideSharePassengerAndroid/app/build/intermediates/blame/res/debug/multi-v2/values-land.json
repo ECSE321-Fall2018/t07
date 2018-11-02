@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\admin\\clonefolder\\t07\\RideSharePassengerAndroid\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "/Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\c0f57bbe994909ed7e5bc592e6ccf06c\\res\\values-land\\values-land.xml",
+                    "source": "/Users/norinmura/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/54fcc57c06b8c93baebdb48fe6d1de8e/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\admin\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\75e5afe3f44782d42e66ab101c8f2705\\res\\values-land\\values-land.xml",
+                    "source": "/Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/res/values-land/values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

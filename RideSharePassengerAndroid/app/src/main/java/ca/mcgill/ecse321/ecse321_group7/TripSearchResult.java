@@ -168,9 +168,10 @@ public class TripSearchResult extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject data = response.getJSONObject(i);
                             int arrLength = data.getJSONArray("durations").length();
+                            JSONArray destinations = data.getJSONArray("destinations");
                             CustomListView item = new CustomListView(i, capitalizeFirstLetter(data.getString("firstname")) + " " + capitalizeFirstLetter(data.getString("lastname")),
-                                    data.getString("seats_available"),
-                                    data.getString("departure_time"),
+                                    data.getString("seats_available") + " seats available\n to " + destinations.getString(destinations.length()-1),
+                                    data.getString("departure_date") + "\n" + data.getString("departure_time"),
                                     data.getJSONArray("durations").getString(arrLength-1) + " hours",
                                     data.toString()
                             );

@@ -141,9 +141,13 @@ public class Profile_page extends AppCompatActivity {
                     Toast.makeText(Profile_page.this, "Response length: " + response.length(), Toast.LENGTH_SHORT).show();
 
                     if (response.isNull(0)) {   // If null then show dialog for not found
-                        myDialogFragment dialog = new myDialogFragment();
-                        dialog.show(getFragmentManager(), "notfound");
-                        Toast.makeText(Profile_page.this, "not found", Toast.LENGTH_SHORT).show();
+                        CustomListView item = new CustomListView(0, "You have no trip record. ",
+                                "No",
+                                null,
+                                null,
+                                null
+                        );
+                        listItems.add(item);
                     }
                     else {
                         for (int i = 0; i < response.length(); i++) {
@@ -151,7 +155,7 @@ public class Profile_page extends AppCompatActivity {
                             int arrLength = data.getJSONArray("durations").length();
                             CustomListView item = new CustomListView(i, capitalizeFirstLetter(data.getString("firstname")) + " " + capitalizeFirstLetter(data.getString("lastname")),
                                     data.getString("seats_available"),
-                                    data.getString("departure_time"),
+                                    data.getString("departure_date") + "\n" + data.getString("departure_time"),
                                     data.getJSONArray("durations").getString(arrLength-1) + " hours",
                                     data.toString()
                             );
@@ -217,15 +221,18 @@ public class Profile_page extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             // retrieve the item
-            ListView listView = (ListView)parent;
-            CustomListView item = (CustomListView)listView.getItemAtPosition(position);
+            ListView listView = (ListView) parent;
+            CustomListView item = (CustomListView) listView.getItemAtPosition(position);
 
-            Intent OpenDetails = new Intent(Profile_page.this, Trip_Details.class);
-            OpenDetails.putExtra("json",item.getJSON());
-            OpenDetails.putExtra("userID", myUserid);
-            startActivity(OpenDetails);
+            if (item.getJSON() != null) {
+                Intent OpenDetails = new Intent(Profile_page.this, Trip_Details.class);
+                OpenDetails.putExtra("json", item.getJSON());
+                OpenDetails.putExtra("userID", myUserid);
+                startActivity(OpenDetails);
+            }
         }
     };
+
     public static String capitalizeFirstLetter(String original) {
         if (original == null || original.length() == 0) {
             return original;

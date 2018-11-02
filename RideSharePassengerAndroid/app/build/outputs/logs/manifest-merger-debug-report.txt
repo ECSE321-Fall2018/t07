@@ -1,231 +1,231 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-MERGED from [com.android.support:design:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\75e5afe3f44782d42e66ab101c8f2705\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\c0f57bbe994909ed7e5bc592e6ccf06c\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b46156cac99f95f9f8178fd7e1df297\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\volley-1.1.1.aar\35a7419b3bc45a7debfdafe1f5358e9d\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\c375c99f35f2cfaf7a41263be5fe4c5f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\de3835d47d2fd994d6fb98e983adc084\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e9187f8b147ea1dec4970d752b756f3d\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\78ec47a1a99ba31089b2ad8a5888e9bf\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\5c7d4382a5f80ceba7aeeb9dd183b3c0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\8a42720191337a33c98dbbc0769d0480\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bbaea7a4da2e05774b6e4ad4baea23be\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:loader:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\928a8bed4b12594a10fbe443366d7e78\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\fdc3133e9995cd7be8abdd8dd88478fb\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\756c43c0664b63a691d61cfd2729b04d\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\840c1c047f17eaddde114eef54149aa6\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\60baae2ca9a2f043ee0677c2d1780bc2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:customview:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\008976354620da66046290781577a264\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\afd677bf9a013684dcd9527bbd5eeba9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\5bcfe1a07b795eece1b5224ab89e4fc9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\daf66869f07aadab08449141500bb692\AndroidManifest.xml:17:1-25:12
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\219dac74c4cf96d99c294954089b2b60\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\28400660a2c4363a73516669885cd22b\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2c7396daadee3b0902afae9004402026\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\dbf817023e006aa1e7d0e4466e6703b4\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\64a1b9c8e264bf072adf0c0c2a242d50\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:print:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\54cb6a85fd205378de79a4b82ea93229\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\f9e89433eefa4e124cc2018f857af0c9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\f6d7933951fba6d1fc4fb9400291da02\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\7c8eedbd72a80dccf8ed30a2f185e22a\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\612632950febc667205235f938caceb2\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\572ea7362718aa1fbd73d01bf43dce71\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+MERGED from [com.android.support:design:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/54fcc57c06b8c93baebdb48fe6d1de8e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/f896ff2ec382b382dae4084c497fe7e2/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.volley:volley:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/volley-1.1.1.aar/d133f68823fa65cfb28713ffffe08092/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e3cfcf1680118bd526c22c8421d70998/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/a680f4082d7598014a59740f4d55ca71/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/b8eed4f325db3271f743233b45f57b88/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4f03063cc5405587cc0cf6e72fe667dc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efa7b27c116f31d604a9aa834113372f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c0da271218f7c4b82d17d4c3c8060272/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/526cfebd52a066a348edb2be4e84d686/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/55f313edf835c47059e5a574a7e299f9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/19cf8c0f1fdf653a14a653e56ba4b6b0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e4fbe1bbe4d65c8312b3c7ce42478144/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/465831f0c73f529ffd70138b42b8e4a0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/4044000c8b94e28381ebf8922dbf96f7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/7d54d02a9b90f16d1a72dfb32f17a7e9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/40b7a34781a271edc4bd3ecb0e8af957/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7bc44a2c07f6dc24889d20e63ec317ba/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a396fed7a10f25e6b623a52e8c9e55c9/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/99392aa8ba70127957cfec1f7719e784/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/573d35fa93faf12e53ee448bce9e7c1c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/42f822af98996613acc0f0b835cc77cb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/da5b1d064f02b81fa6436dd391f7d7e7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/4166f05fec6d02d700eddd7a8ba855ae/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/f51e3a0cbe75d74b36ddd51892e23d66/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/d63b98b4108fe601ac03f3665d61efd5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/8dffbcbc1dd67654654649196668a52c/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/998a1013a229717069ebd09ee692af9b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/077cae801a399a08192df4c4e5d3d126/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a09884464f5cffe2d6385d5d81adf34/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
 	package
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:3:5-47
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:3:5-47
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:1-52:12
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:1-52:12
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:7:5-50:19
-MERGED from [com.android.support:design:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\75e5afe3f44782d42e66ab101c8f2705\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\75e5afe3f44782d42e66ab101c8f2705\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b46156cac99f95f9f8178fd7e1df297\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b46156cac99f95f9f8178fd7e1df297\AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\volley-1.1.1.aar\35a7419b3bc45a7debfdafe1f5358e9d\AndroidManifest.xml:9:5-20
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\volley-1.1.1.aar\35a7419b3bc45a7debfdafe1f5358e9d\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:22:5-94
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\daf66869f07aadab08449141500bb692\AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\daf66869f07aadab08449141500bb692\AndroidManifest.xml:22:5-23:19
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:7:5-50:19
+MERGED from [com.android.support:design:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/f896ff2ec382b382dae4084c497fe7e2/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/f896ff2ec382b382dae4084c497fe7e2/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/volley-1.1.1.aar/d133f68823fa65cfb28713ffffe08092/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/volley-1.1.1.aar/d133f68823fa65cfb28713ffffe08092/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a396fed7a10f25e6b623a52e8c9e55c9/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a396fed7a10f25e6b623a52e8c9e55c9/AndroidManifest.xml:22:5-23:19
 	android:appComponentFactory
-		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:22:18-91
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:11:9-41
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:12:9-54
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:12:9-54
 	android:icon
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:10:9-43
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:10:9-43
 	android:allowBackup
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:14:9-65
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:14:9-65
 	android:usesCleartextTraffic
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:8:9-44
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:8:9-44
 activity#ca.mcgill.ecse321.ecse321_group7.MainActivity
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:16:9-25:20
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:16:9-25:20
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:18:13-45
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:19:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:19:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:17:13-41
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:23:27-74
 activity#ca.mcgill.ecse321.ecse321_group7.User_login
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:26:9-29:59
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:26:9-29:59
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:28:13-62
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:28:13-62
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:29:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:29:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:27:13-39
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:27:13-39
 activity#ca.mcgill.ecse321.ecse321_group7.User_Signup
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:30:9-33:59
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:30:9-33:59
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:32:13-64
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:32:13-64
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:33:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:33:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:31:13-40
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:31:13-40
 activity#ca.mcgill.ecse321.ecse321_group7.Profile_page
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:34:9-37:68
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:34:9-37:68
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:36:13-64
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:36:13-64
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:37:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:37:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:35:13-41
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:35:13-41
 activity#ca.mcgill.ecse321.ecse321_group7.Trip_Search
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:38:9-41:59
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:38:9-41:59
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:40:13-63
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:40:13-63
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:41:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:41:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:39:13-40
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:39:13-40
 activity#ca.mcgill.ecse321.ecse321_group7.TripSearchResult
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:42:9-45:59
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:42:9-45:59
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:44:13-45
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:44:13-45
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:45:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:45:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:43:13-45
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:43:13-45
 activity#ca.mcgill.ecse321.ecse321_group7.Trip_Details
-ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:46:9-49:59
+ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:46:9-49:59
 	android:label
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:48:13-41
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:48:13-41
 	android:theme
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:49:13-56
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:49:13-56
 	android:name
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml:47:13-41
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml:47:13-41
 uses-sdk
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\75e5afe3f44782d42e66ab101c8f2705\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\75e5afe3f44782d42e66ab101c8f2705\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\c0f57bbe994909ed7e5bc592e6ccf06c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\c0f57bbe994909ed7e5bc592e6ccf06c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b46156cac99f95f9f8178fd7e1df297\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\7b46156cac99f95f9f8178fd7e1df297\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\volley-1.1.1.aar\35a7419b3bc45a7debfdafe1f5358e9d\AndroidManifest.xml:7:5-43
-MERGED from [com.android.volley:volley:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\volley-1.1.1.aar\35a7419b3bc45a7debfdafe1f5358e9d\AndroidManifest.xml:7:5-43
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\c375c99f35f2cfaf7a41263be5fe4c5f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\c375c99f35f2cfaf7a41263be5fe4c5f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\de3835d47d2fd994d6fb98e983adc084\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\de3835d47d2fd994d6fb98e983adc084\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e9187f8b147ea1dec4970d752b756f3d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e9187f8b147ea1dec4970d752b756f3d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\78ec47a1a99ba31089b2ad8a5888e9bf\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\78ec47a1a99ba31089b2ad8a5888e9bf\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\5c7d4382a5f80ceba7aeeb9dd183b3c0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\5c7d4382a5f80ceba7aeeb9dd183b3c0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\8a42720191337a33c98dbbc0769d0480\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\8a42720191337a33c98dbbc0769d0480\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bbaea7a4da2e05774b6e4ad4baea23be\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\bbaea7a4da2e05774b6e4ad4baea23be\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\928a8bed4b12594a10fbe443366d7e78\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:loader:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\928a8bed4b12594a10fbe443366d7e78\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\fdc3133e9995cd7be8abdd8dd88478fb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:viewpager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\fdc3133e9995cd7be8abdd8dd88478fb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\756c43c0664b63a691d61cfd2729b04d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\756c43c0664b63a691d61cfd2729b04d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\840c1c047f17eaddde114eef54149aa6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\840c1c047f17eaddde114eef54149aa6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\60baae2ca9a2f043ee0677c2d1780bc2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\60baae2ca9a2f043ee0677c2d1780bc2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\008976354620da66046290781577a264\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customview:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\008976354620da66046290781577a264\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\afd677bf9a013684dcd9527bbd5eeba9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\afd677bf9a013684dcd9527bbd5eeba9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\5bcfe1a07b795eece1b5224ab89e4fc9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\5bcfe1a07b795eece1b5224ab89e4fc9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\ee74c9d45b2bf207f0f2a23b9ff6e443\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\daf66869f07aadab08449141500bb692\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\daf66869f07aadab08449141500bb692\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\219dac74c4cf96d99c294954089b2b60\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\219dac74c4cf96d99c294954089b2b60\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\28400660a2c4363a73516669885cd22b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\28400660a2c4363a73516669885cd22b\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2c7396daadee3b0902afae9004402026\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2c7396daadee3b0902afae9004402026\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\dbf817023e006aa1e7d0e4466e6703b4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:documentfile:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\dbf817023e006aa1e7d0e4466e6703b4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\64a1b9c8e264bf072adf0c0c2a242d50\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\64a1b9c8e264bf072adf0c0c2a242d50\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\54cb6a85fd205378de79a4b82ea93229\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:print:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\54cb6a85fd205378de79a4b82ea93229\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\f9e89433eefa4e124cc2018f857af0c9\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\f9e89433eefa4e124cc2018f857af0c9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\f6d7933951fba6d1fc4fb9400291da02\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:interpolator:28.0.0] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\f6d7933951fba6d1fc4fb9400291da02\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\7c8eedbd72a80dccf8ed30a2f185e22a\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\7c8eedbd72a80dccf8ed30a2f185e22a\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\612632950febc667205235f938caceb2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\612632950febc667205235f938caceb2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\572ea7362718aa1fbd73d01bf43dce71\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\572ea7362718aa1fbd73d01bf43dce71\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/bcee40b7afa7d4010164e2407de39143/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/54fcc57c06b8c93baebdb48fe6d1de8e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/54fcc57c06b8c93baebdb48fe6d1de8e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/f896ff2ec382b382dae4084c497fe7e2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/f896ff2ec382b382dae4084c497fe7e2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.volley:volley:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/volley-1.1.1.aar/d133f68823fa65cfb28713ffffe08092/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/volley-1.1.1.aar/d133f68823fa65cfb28713ffffe08092/AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e3cfcf1680118bd526c22c8421d70998/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/e3cfcf1680118bd526c22c8421d70998/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/a680f4082d7598014a59740f4d55ca71/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/a680f4082d7598014a59740f4d55ca71/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/b8eed4f325db3271f743233b45f57b88/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/b8eed4f325db3271f743233b45f57b88/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4f03063cc5405587cc0cf6e72fe667dc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/4f03063cc5405587cc0cf6e72fe667dc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efa7b27c116f31d604a9aa834113372f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/efa7b27c116f31d604a9aa834113372f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c0da271218f7c4b82d17d4c3c8060272/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/c0da271218f7c4b82d17d4c3c8060272/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/526cfebd52a066a348edb2be4e84d686/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/526cfebd52a066a348edb2be4e84d686/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/55f313edf835c47059e5a574a7e299f9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/55f313edf835c47059e5a574a7e299f9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/19cf8c0f1fdf653a14a653e56ba4b6b0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/19cf8c0f1fdf653a14a653e56ba4b6b0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e4fbe1bbe4d65c8312b3c7ce42478144/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/e4fbe1bbe4d65c8312b3c7ce42478144/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/465831f0c73f529ffd70138b42b8e4a0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/465831f0c73f529ffd70138b42b8e4a0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/4044000c8b94e28381ebf8922dbf96f7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/4044000c8b94e28381ebf8922dbf96f7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/7d54d02a9b90f16d1a72dfb32f17a7e9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/7d54d02a9b90f16d1a72dfb32f17a7e9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/40b7a34781a271edc4bd3ecb0e8af957/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/40b7a34781a271edc4bd3ecb0e8af957/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7bc44a2c07f6dc24889d20e63ec317ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7bc44a2c07f6dc24889d20e63ec317ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c34f19cae260a812fc14a93d3674fb91/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a396fed7a10f25e6b623a52e8c9e55c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/a396fed7a10f25e6b623a52e8c9e55c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/99392aa8ba70127957cfec1f7719e784/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/99392aa8ba70127957cfec1f7719e784/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/573d35fa93faf12e53ee448bce9e7c1c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/573d35fa93faf12e53ee448bce9e7c1c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/42f822af98996613acc0f0b835cc77cb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/42f822af98996613acc0f0b835cc77cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/da5b1d064f02b81fa6436dd391f7d7e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/da5b1d064f02b81fa6436dd391f7d7e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/4166f05fec6d02d700eddd7a8ba855ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/4166f05fec6d02d700eddd7a8ba855ae/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/f51e3a0cbe75d74b36ddd51892e23d66/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/f51e3a0cbe75d74b36ddd51892e23d66/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/d63b98b4108fe601ac03f3665d61efd5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/d63b98b4108fe601ac03f3665d61efd5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/8dffbcbc1dd67654654649196668a52c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/8dffbcbc1dd67654654649196668a52c/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/998a1013a229717069ebd09ee692af9b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/998a1013a229717069ebd09ee692af9b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/077cae801a399a08192df4c4e5d3d126/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/077cae801a399a08192df4c4e5d3d126/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a09884464f5cffe2d6385d5d81adf34/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/norinmura/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/5a09884464f5cffe2d6385d5d81adf34/AndroidManifest.xml:20:5-44
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\admin\clonefolder\t07\RideSharePassengerAndroid\app\src\main\AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		ADDED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/norinmura/OneDrive - McGill University/workspace/t07/RideSharePassengerAndroid/app/src/main/AndroidManifest.xml

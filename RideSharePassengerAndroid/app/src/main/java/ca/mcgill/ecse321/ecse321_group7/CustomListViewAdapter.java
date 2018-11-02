@@ -41,7 +41,7 @@ public class CustomListViewAdapter  extends ArrayAdapter<CustomListView> {
         driver_name.setText(item.getDriverName());
 
         TextView seats = (TextView)view.findViewById(R.id._seatsleft);
-        seats.setText(item.getSeats() + " Seats Available");
+        seats.setText(item.getSeats());
 
         TextView dep_time = (TextView)view.findViewById(R.id._depTime);
         dep_time.setText(item.getDepTime());
