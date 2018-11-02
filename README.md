@@ -16,6 +16,7 @@ Nov. 1, 2018: (Android, Passenger, Backend) Added Email Uniqueness Check on Logi
 - On the android sign up page when pressing sign up it now first checks for validity
 - If it is not a valid email address a small pop up says that it is already taken
 - Also added 2 JUnit tests to check helper functions
+- Passenger profile page showing passengers' trip (both past and upcoming at this stage)
 
 Nov. 1, 2018: (Android, Passenger) Added Ability To Sort Trip Search
 - Now on the Trip Search page there is a box with a spinner that allows you to change between different sorting modes
