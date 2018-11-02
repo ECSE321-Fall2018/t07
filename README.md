@@ -9,6 +9,9 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 1, 2018: (Backend)
+- Added backend function to search based on driverid. 
+
 Nov. 1, 2018: (Android, Passenger, Backend) Added Email Uniqueness Check on Login
 - Since we are using email and password for logging in, then the email needs to be unique
 - Added backend functionality to the /users/search REST endpoint that allows searching for email
