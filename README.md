@@ -9,8 +9,11 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
-Nov. 1, 2018: (Backend)
+Nov. 1, 2018: (Android, Passenger, Backend)
 - Added backend function to search based on driverid. 
+- Made some change on the data presentation on android app. 
+- Made bug fix on the ListView not showing the full list. 
+- Other minor bug fixes (see commit log)
 
 Nov. 1, 2018: (Android, Passenger, Backend) Added Email Uniqueness Check on Login
 - Since we are using email and password for logging in, then the email needs to be unique
