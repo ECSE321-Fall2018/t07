@@ -227,7 +227,7 @@ public class RideShareController {
 			
 			List<Map<String,Object>> list;
 			String query	= "WITH filtered AS (" + 
-					"  SELECT * FROM trip_table WHERE " + driverid + " = ANY (trip_table.driver_id) ORDER BY departure_time ASC" + 
+					"  SELECT * FROM trip_table WHERE driver_id = " + driverid + " ORDER BY departure_time ASC" + 
 					"), final AS (" + 
 					"  SELECT * from filtered" + 
 					"  LEFT OUTER JOIN user_table " + 
