@@ -10,9 +10,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,10 +33,18 @@ public class Trip_Create extends AppCompatActivity {
     private TextView depart_date;
     private TextView depart_time;
     private EditText availableSeats;
+    private EditText comments;
+    private EditText vehicleInfo;
+    private EditText licensePlate;
 
     private Button createButton;
+    private ImageButton destinationButton;
+    private ImageButton removeDestButton;
 
     private int myUserid = 0;
+
+    private ArrayList<DestinationListView> listItems = new ArrayList<>();
+    private ListView list_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +55,17 @@ public class Trip_Create extends AppCompatActivity {
 
         departure = findViewById(R.id.departure_input);
         availableSeats = findViewById(R.id.seats_input);
-        createButton = findViewById(R.id._create);
-
         depart_date = this.findViewById(R.id.departure_date_input);
         depart_time = this.findViewById(R.id.time_input);
+        comments = this.findViewById(R.id.comments_input_box);
+        vehicleInfo = this.findViewById(R.id.vehicleInfoBox);
+        licensePlate = this.findViewById(R.id.licensePlateBox);
+
+        createButton = findViewById(R.id._create);
+        destinationButton = findViewById(R.id.addDestinationButton);
+        removeDestButton = findViewById(R.id.removeDestinationButton);
+
+        list_view = findViewById(R.id.destinationsListView);
 
         //////////////
         // Receive the userid value from User_login here
@@ -52,27 +76,117 @@ public class Trip_Create extends AppCompatActivity {
         //System.out.println("My Userid: " + myUserid);
         /////////////
 
+        //Give an initial destination field
+        DestinationListView item = new DestinationListView();
+        listItems.add(item);
+        final DestinationListViewAdapter adapter = new DestinationListViewAdapter(Trip_Create.this, R.layout.new_destination_list_item, listItems);
+        list_view.setAdapter(adapter);
+
+        //Cicking the button adds more destination fields
+        destinationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                DestinationListView item = new DestinationListView();
+                listItems.add(item);
+                adapter.notifyDataSetChanged();
+            }
+        });
+        removeDestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                listItems.remove(listItems.size()-1);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
         createButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (!ToReject(departure)/* && !ToReject(destination)*/) {       // Checking departure only; just list them all
-                    //Execute the search code and go to search page layout
-                    /*
-                    Intent OpenResult = new Intent(Trip_Create.this, TripSearchResult.class);
-                    OpenResult.putExtra("Date",depart_date.getText().toString());
-                    OpenResult.putExtra("Dept",departure.getText().toString());  // passing the argument
-                    OpenResult.putExtra("Dest",destination.getText().toString());  // passing the argument
-                    OpenResult.putExtra("Seats",seatsSpinner.getSelectedItemPosition()+1);
-                    OpenResult.putExtra("userID", myUserid);
 
-                    startActivity(OpenResult);
-                    */
+                if (!ToReject(departure.getText().toString()) && !ToReject(availableSeats.getText().toString()) && !ToReject(depart_date.getText().toString()) && !ToReject(depart_time.getText().toString())) {       // Checking departure only; just list them all
+                    String destStr = "";
+                    String durStr = "";
+                    String priceStr = "";
+                    boolean first = true;
+                    boolean broken = false;
+                    System.out.println(list_view.getAdapter().getCount());
+
+                    for (int i=0; i < list_view.getAdapter().getCount(); i++) {
+                        if (!first) {
+                            destStr += ", ";
+                            durStr += ", ";
+                            priceStr += ", ";
+                        }
+
+                        DestinationListViewAdapter adapt = (DestinationListViewAdapter)list_view.getAdapter();
+                        View viewDestList = (View)adapt.getView(i, null, list_view);
+                        //EditText destET = viewDestList.findViewById(R.id.newDestinationField);
+                        //EditText durET = viewDestList.findViewById(R.id.newDurationField);
+                        //EditText priceET = viewDestList.findViewById(R.id.newPriceField);
+                        String dest = adapt.getDest(viewDestList);
+                        String dur = adapt.getDur(viewDestList);
+                        String price = adapt.getPrice(viewDestList);
+                        /*
+                        if (!ToReject(destET.getText().toString()) && !ToReject(durET.getText().toString()) && !ToReject(priceET.getText().toString())) {
+                            destStr += destET.getText().toString();
+                            durStr += durET.getText().toString();
+                            priceStr += priceET.getText().toString();
+                            first = false;
+                        }
+                        */
+                        if (!ToReject(dest) && !ToReject(dur) && !ToReject(price)) {
+                            destStr += dest;
+                            durStr += dur;
+                            priceStr += price;
+                            first = false;
+                        }
+                        else {
+                            Toast.makeText(Trip_Create.this, "Please ensure destination fields are filled", Toast.LENGTH_SHORT).show();
+                            broken = true;
+                            break;
+                        }
+                    }
+                    if (!broken) {
+                        addTripToDB(destStr, durStr, priceStr);
+                    }
                 }
                 else {
                     Toast.makeText(Trip_Create.this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private void addTripToDB(String destStr, String durStr, String priceStr) {
+        // Handling Login using Volley
+        ////////////////////
+        RequestQueue mQueue;
+        ///trips/create?driverID={Driver ID}&driverEmail={Driver Email}&driverPhone={Driver Phone Number}&date={yyyy-mm-dd}
+        // &depTime={HH:MM:SS}&depLocation={Departure Location}&destinations={Destination1, Destination2, etc}
+        // &tripDurations={Duration1, Duration2, etc}&prices={Price1, Price2, etc}&seats={Available Seats}&vehicleType={Vehicle Type}
+        // &licensePlate={License Plate Number}&comments={Additional Comments}
+        String url = "https://ecse321-group7.herokuapp.com/trips/create?driverID=" + myUserid + "&driverEmail=NA&driverPhone=NA&date=" + depart_date.getText().toString()
+                + "&depTime=" + depart_time.getText().toString() + "&depLocation=" + departure.getText().toString() + "&destinations=" + destStr
+                + "&tripDurations=" + durStr + "&prices=" + priceStr + "&seats=" + availableSeats.getText().toString() + "&vehicleType=" + vehicleInfo.getText().toString()
+                + "&licensePlate=" + licensePlate.getText().toString() + "&comments=" + comments.getText().toString();
+        mQueue = Volley.newRequestQueue(Trip_Create.this);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(Trip_Create.this, response, Toast.LENGTH_SHORT).show();
+                //GO TO THE SPECIFIC DRIVER TRIP DETAILS PAGE
+                //Intent GoToLogin = new Intent(Trip_Create.this, User_login.class);
+                //startActivity(GoToLogin);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(Trip_Create.this, "That didn't work!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // Add the request to the RequestQueue.
+        mQueue.add(stringRequest);
     }
 
     @Override
@@ -96,9 +210,9 @@ public class Trip_Create extends AppCompatActivity {
         }
     }
 
-    public boolean ToReject(EditText check){
+    public boolean ToReject(String check){
         boolean rejected = false;
-        if(check.getText().toString().equals("")) rejected = true;
+        if(check.equals("")) rejected = true;
         return rejected;
     }
 

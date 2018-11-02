@@ -177,16 +177,111 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="315dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Destinations"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/addDestinationButton"
+                android:layout_width="66dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/add_circle" />
+
+            <ImageButton
+                android:id="@+id/removeDestinationButton"
+                android:layout_width="66dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/remove_circle" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/destinationsListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="10dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toTopOf="@id/comments_section"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout3">
+
+        </ListView>
+
         <ScrollView
             android:id="@+id/comments_section"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="Vehicle Type:"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/vehicleInfoBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/vehicleInfo"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView23"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="License Plate:"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/licensePlateBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/licensePlate"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView6"
@@ -203,7 +298,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="30dp"
                     android:hint="@string/comments_input" />
 
                 <Button
@@ -217,11 +312,10 @@
                     android:text="Post"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.501"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                    app:layout_constraintHorizontal_bias="0.501"/>
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

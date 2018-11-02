@@ -994,6 +994,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable add_circle
 drawable avd_hide_password
 drawable avd_show_password
 drawable design_bottom_navigation_item_background
@@ -1025,6 +1026,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable remove_circle
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1073,6 +1075,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addDestinationButton
 id alertTitle
 id all
 id always
@@ -1115,6 +1118,7 @@ id design_menu_item_text
 id design_navigation_view
 id destinationBox
 id destination_input
+id destinationsListView
 id detailsListView
 id dimensions
 id direct
@@ -1162,6 +1166,7 @@ id labeled
 id largeLabel
 id lastname
 id left
+id licensePlateBox
 id line1
 id line3
 id linearLayout
@@ -1182,6 +1187,9 @@ id multiply
 id myListView
 id navigation_header_container
 id never
+id newDestinationField
+id newDurationField
+id newPriceField
 id none
 id normal
 id notification_background
@@ -1204,6 +1212,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id remainingSeatsText
+id removeDestinationButton
 id right
 id right_icon
 id right_side
@@ -1268,7 +1277,13 @@ id textView12
 id textView13
 id textView14
 id textView15
+id textView16
+id textView17
+id textView18
+id textView19
 id textView2
+id textView22
+id textView23
 id textView3
 id textView4
 id textView5
@@ -1300,6 +1315,7 @@ id up
 id upcoming
 id useLogo
 id vehicleInfo
+id vehicleInfoBox
 id view_offset_helper
 id visible
 id withText
@@ -1381,6 +1397,7 @@ layout design_text_input_password_icon
 layout list_result_item
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
+layout new_destination_list_item
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -1460,7 +1477,11 @@ string email
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hide_bottom_view_on_scroll_behavior
+string licensePlate
 string mtrl_chip_close_icon_content_description
+string newDestination
+string newDuration
+string newPrice
 string newevent_date_first
 string newevent_date_label
 string password
@@ -1479,6 +1500,7 @@ string title_activity_trip_search
 string title_activity_user__signup
 string title_activity_user_login
 string upcoming
+string vehicleInfo
 string yourtrips
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
