@@ -26,7 +26,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Profile_page extends AppCompatActivity {
 
@@ -46,6 +50,7 @@ public class Profile_page extends AppCompatActivity {
 
     private ListView Passenger_trips;
     private ArrayList<CustomListView> listItems = new ArrayList<>();
+    private ArrayList<CustomListView> listItems_past = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,8 +131,30 @@ public class Profile_page extends AppCompatActivity {
         Upcoming = findViewById(R.id.upcoming);
         Passenger_trips = findViewById(R.id.Profile_ListView);
 
+        Upcoming.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ShowTrips(listItems);
+            }
+        });
+
+        Past.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                ShowTrips(listItems_past);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_option, menu);
+        return true;
+
+    }
+
+    private void ShowTrips(final ArrayList<CustomListView> Seleted){
         //search trip by passenger id
-        //1. Show all trips that the user had/has
         RequestQueue ShowUpcoming;
         String Upcoming_url = "https://ecse321-group7.herokuapp.com/trips/search?passengerid=" + myUserid;
 
@@ -136,39 +163,43 @@ public class Profile_page extends AppCompatActivity {
         Response.Listener<JSONArray> JSONListener_gettrips = new Response.Listener<JSONArray>() {       // listener when connection is succeeded
             @Override
             public void onResponse(JSONArray response) {
+                Date Today = Calendar.getInstance().getTime();
                 // JSONObject has to be dealt with try-catch else compile error
                 try {
                     //Toast.makeText(Profile_page.this, "Response length: " + response.length(), Toast.LENGTH_SHORT).show();
 
                     if (response.isNull(0)) {   // If null then show dialog for not found
-                        CustomListView item = new CustomListView(0, "You have no trip record. ",
-                                "No",
-                                null,
-                                null,
-                                null
-                        );
-                        listItems.add(item);
+                        myDialogFragment dialog = new myDialogFragment();
+                        dialog.show(getFragmentManager(), "notfound");
+                        //Toast.makeText(Profile_page.this, "not found", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         for (int i = 0; i < response.length(); i++) {
+
                             JSONObject data = response.getJSONObject(i);
                             int arrLength = data.getJSONArray("durations").length();
                             CustomListView item = new CustomListView(i, capitalizeFirstLetter(data.getString("firstname")) + " " + capitalizeFirstLetter(data.getString("lastname")),
                                     data.getString("seats_available"),
-                                    data.getString("departure_date") + "\n" + data.getString("departure_time"),
-                                    data.getJSONArray("durations").getString(arrLength-1) + " hours",
+                                    data.getString("departure_time"),
+                                    data.getJSONArray("durations").getString(arrLength - 1) + " hours",
                                     data.toString()
                             );
-                            listItems.add(item);
+                            //upcoming trips stored in listItems
+                            if(Past(data,Today) == false) {
+                                listItems.add(item);
+                            }
+                            //past trips stored in listItems_past
+                            else
+                                listItems_past.add(item);
                         }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(Profile_page.this, "exception", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Profile_page.this, "exception", Toast.LENGTH_SHORT).show();
                 }
 
                 // export stuffs into listview
-                CustomListViewAdapter adapter = new CustomListViewAdapter(Profile_page.this, R.layout.list_result_item, listItems);
+                CustomListViewAdapter adapter = new CustomListViewAdapter(Profile_page.this, R.layout.list_result_item, Seleted);
                 Passenger_trips.setAdapter(adapter);
                 Passenger_trips.setOnItemClickListener(onItemClickListener);
             }
@@ -177,7 +208,7 @@ public class Profile_page extends AppCompatActivity {
         Response.ErrorListener ErrorListener = new Response.ErrorListener() {       // Listener when connection failed
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Profile_page.this, "error", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Profile_page.this, "error", Toast.LENGTH_SHORT).show();
 
                 System.out.println("Failed with error msg:\t" + error.getMessage());
                 System.out.println("Error StackTrace: \t" + error.getStackTrace());
@@ -192,14 +223,6 @@ public class Profile_page extends AppCompatActivity {
         };
 
         ShowUpcoming.add(new JsonArrayRequest(Request.Method.POST, Upcoming_url, null, JSONListener_gettrips, ErrorListener));
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.profile_option, menu);
-        return true;
-
     }
 
     @Override
@@ -215,6 +238,33 @@ public class Profile_page extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private boolean Past(JSONObject pTrip, Date Today) throws JSONException {
+        boolean past = true;
+        String Departure_date;
+        String Departure_time;
+
+        try {
+            Departure_date = pTrip.getString("departure_date");
+            Departure_time = pTrip.getString("departure_time");
+            Date date = new Date();
+            String dtStart = Departure_date+"T"+Departure_time+"Z";
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            try {
+                date = format.parse(dtStart);
+                int compare = date.compareTo(Today);
+                if(compare>=0) past = false;
+                else if(compare<0) past = true;
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            //Toast.makeText(Profile_page.this, "exception", Toast.LENGTH_SHORT).show();
+        }
+
+        return past;
     }
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
