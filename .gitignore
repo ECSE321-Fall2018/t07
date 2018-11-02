@@ -18,8 +18,8 @@
 *.iws
 *.ipr
 .gradle/
-*/gradle/
-*/app/build/
+gradle/
+build/
 local.properties
 build.gradle
 gradlew
