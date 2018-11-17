@@ -134,6 +134,126 @@ public class RideShareController {
 		}
 	}
 	
+	// search trip_table for driverID's and join with user_table to return searched drivers
+	@RequestMapping(path="/users/search/partialDriver", method=RequestMethod.POST)
+	public String driver_partial_search (ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
+		if (keyword.isEmpty() == false) {
+			List<Map<String,Object>> list;
+			String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
+			String searchFirstName = "";
+			String searchLastName = "";
+			
+			//Checks all of the keywords from the search, separated by commas
+			for (int i = 0; i < keywords.length; i++) {
+				if (keywords[i].isEmpty() == false) {
+					if (i != 0) {
+						searchFirstName = searchFirstName + " OR ";
+						searchLastName = searchLastName + " OR ";
+					}
+					searchFirstName = searchFirstName + "user_table.firstname LIKE '%" + keywords[i] + "%'";
+					searchLastName = searchLastName + "user_table.lastname LIKE '%" + keywords[i] + "%'";
+				}
+				
+			}
+			
+			String query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+		}
+		else {
+			List<Map<String,Object>> list;
+			String query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id GROUP BY userid";
+			list = service.executeSQL(query);
+			String value = new String();
+			
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+			
+		}
+	}
+		
+	// search trip_table for passenger ID's in the passenger_ID array and join with user_table to return searched passengers
+	@RequestMapping(path="/users/search/partialPassenger", method=RequestMethod.POST)
+	public String passenger_partial_search (ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
+		if (keyword.isEmpty() == false) {
+			List<Map<String,Object>> list;
+			String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
+			String searchFirstName = "";
+			String searchLastName = "";
+			
+			//Checks all of the keywords from the search, separated by commas
+			for (int i = 0; i < keywords.length; i++) {
+				if (keywords[i].isEmpty() == false) {
+					if (i != 0) {
+						searchFirstName = searchFirstName + " OR ";
+						searchLastName = searchLastName + " OR ";
+					}
+					searchFirstName = searchFirstName + "user_table.firstname LIKE '%" + keywords[i] + "%'";
+					searchLastName = searchLastName + "user_table.lastname LIKE '%" + keywords[i] + "%'";
+				}
+				
+			}
+			
+			String query = "";
+			
+			if (status.equalsIgnoreCase("active")) {
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+			}
+			else if (status.equalsIgnoreCase("registered") || status.isEmpty()) {
+				query = "select to_json (user_table) from user_table WHERE ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+			}
+			else if(status.equalsIgnoreCase("enroute")) {
+				return "Yet to be added";
+			}
+			else {
+				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
+			}
+			
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+		}
+		else {
+			List<Map<String,Object>> list;
+			String query = "";
+			if (status.equalsIgnoreCase("active")) {
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) GROUP BY userid";
+			}
+			else if (status.equalsIgnoreCase("registered") || status.isEmpty()) {
+				query = "select to_json (user_table) from user_table GROUP BY userid";
+			}
+			else if(status.equalsIgnoreCase("enroute")) {
+				return "Yet to be added";
+			}
+			else {
+				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
+			}
+			
+			list = service.executeSQL(query);
+			String value = new String();
+			
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+			
+		}
+	}
 	
 	// Authentication using email and password
 	// WEAK SECURITY
@@ -328,6 +448,63 @@ public class RideShareController {
 		}
     		
     }
+	
+	// return the list of trips that fit the partial search matching
+		@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
+		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
+			if (keyword.isEmpty() == false) {
+				List<Map<String,Object>> list;
+				String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
+				String searchDeparture = "";
+				String searchDestination = "";
+				
+				//Checks all of the keywords from the search, separated by commas
+				for (int i = 0; i < keywords.length; i++) {
+					if (keywords[i].isEmpty() == false) {
+						if (i != 0) {
+							searchDeparture = searchDeparture + " OR ";
+							searchDestination = searchDestination + " OR ";
+						}
+						searchDeparture = searchDeparture + "departure_location LIKE '%" + keywords[i] + "%'";
+						searchDestination = searchDestination + "dest LIKE '%" + keywords[i] + "%'";
+					}
+				}
+				
+				//In order to use the LIKE operator on array columns we need to unnest() them as used below
+				String query = "";
+				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) GROUP BY trip_id";
+				}
+				else if (status.equalsIgnoreCase("enroute")) {
+					return "Yet to be added";
+				}
+				else {
+					return "Please enter a proper status: all, enroute, or leave the field empty";
+				}
+				
+				list = service.executeSQL(query);
+				
+				String value = new String();
+				for (int i=0; i<list.size(); i++) {
+					value += list.get(i).values().toString();
+				}
+				
+				return value;
+			}
+			else {
+				List<Map<String,Object>> list;
+				String query = "select to_json (trip_table) from trip_table";
+				list = service.executeSQL(query);
+				String value = new String();
+				
+				for (int i=0; i<list.size(); i++) {
+					value += list.get(i).values().toString();
+				}
+				
+				return value;
+				
+			}
+		}
     
     /*
      * API for Writing into Database

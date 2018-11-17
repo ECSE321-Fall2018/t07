@@ -1,4 +1,4 @@
-#Fri Nov 02 01:13:54 EDT 2018
-base.0=/Users/norinmura/OneDrive - McGill University/workspace/t07/RideShareDriverAndroid/app/build/intermediates/transforms/dexMerger/debug/0
+#Fri Nov 02 12:24:10 EDT 2018
+base.0=/Users/RyanDotsikas/git/project07/RideShareDriverAndroid/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

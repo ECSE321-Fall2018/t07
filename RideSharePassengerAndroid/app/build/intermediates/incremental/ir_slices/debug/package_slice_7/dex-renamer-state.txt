@@ -1,4 +1,4 @@
-#Fri Nov 02 11:59:48 EDT 2018
-base.0=C\:\\Users\\admin\\clonefolder\\t07\\RideSharePassengerAndroid\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
+#Fri Nov 02 12:33:12 EDT 2018
+base.0=/Users/RyanDotsikas/git/project07/RideSharePassengerAndroid/app/build/intermediates/transforms/dexMerger/debug/7
 path.0=classes.dex
 renamed.0=classes.dex
