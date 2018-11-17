@@ -9,6 +9,16 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 17, 2018: (Web Frontend)
+- Added rest endpoints "/users/search/partialDriver", "/users/search/partialPassenger" and "/trips/search/partial"
+- These rest endpoints are for the search functions used in the Fleet Status Overview for Sprint 3
+- They allow for search for drivers, passengers and trips using partial matching of search terms
+- They also have added support for specifying the 'status' of the subject you are searching for:
+  - Registered (for everyone in the system)
+  - Active (for those who have been on trips)
+  - Enroute (for those who are currently on a trip in progress)
+- The functionality for 'Enroute' has yet to be added, as it depends on Issue #45
+
 Nov. 2, 2018: (Android, Driver)
 - Trip_Create and Trip_Edit are now working. 
 - All functions are implemented and are working well at this point.  
