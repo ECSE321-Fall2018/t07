@@ -156,7 +156,14 @@ public class RideShareController {
 				
 			}
 			
-			String query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+			String query = "";
+			if (status.equalsIgnoreCase("enroute")) {
+				query ="select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
+			}
+			else {
+				query ="select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+			}
+			
 			list = service.executeSQL(query);
 			
 			String value = new String();
@@ -168,7 +175,14 @@ public class RideShareController {
 		}
 		else {
 			List<Map<String,Object>> list;
-			String query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id GROUP BY userid";
+			String query = "";
+			if (status.equalsIgnoreCase("enroute")) {
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND \"isCompleted\" = 'false' GROUP BY userid";
+			}
+			else {
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id GROUP BY userid";
+			}
+	
 			list = service.executeSQL(query);
 			String value = new String();
 			
@@ -212,7 +226,7 @@ public class RideShareController {
 				query = "select to_json (user_table) from user_table WHERE ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
 			}
 			else if(status.equalsIgnoreCase("enroute")) {
-				return "Yet to be added";
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
 				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
@@ -237,7 +251,7 @@ public class RideShareController {
 				query = "select to_json (user_table) from user_table GROUP BY userid";
 			}
 			else if(status.equalsIgnoreCase("enroute")) {
-				return "Yet to be added";
+				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
 				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
@@ -476,7 +490,7 @@ public class RideShareController {
 					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) GROUP BY trip_id";
 				}
 				else if (status.equalsIgnoreCase("enroute")) {
-					return "Yet to be added";
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' GROUP BY trip_id";
 				}
 				else {
 					return "Please enter a proper status: all, enroute, or leave the field empty";
@@ -493,7 +507,17 @@ public class RideShareController {
 			}
 			else {
 				List<Map<String,Object>> list;
-				String query = "select to_json (trip_table) from trip_table";
+				String query = "";
+				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
+					query = "select to_json (trip_table) from trip_table";
+				}
+				else if (status.equalsIgnoreCase("enroute")) {
+					query = "select to_json (trip_table) from trip_table WHERE \"isCompleted\" = 'false'";
+				}
+				else {
+					return "Please enter a proper status: all, enroute, or leave the field empty";
+				}
+				
 				list = service.executeSQL(query);
 				String value = new String();
 				
@@ -578,9 +602,10 @@ public class RideShareController {
     	    			//Creates the object and returns a confirmation message that it worked
     	    			Trip newTrip = new Trip (driverID, driverEmail, driverPhone, date, time, depLocation.toLowerCase(), destinationList, tripDurationList, pricesList, seats, vehicleType, licensePlate, comments);
     	    			
-    	    			String query = "INSERT INTO trip_table (driver_id, departure_date, departure_time, departure_location, durations, destinations, seats_available, passenger_id, prices, vehicle_type, licence_plate, contact_no, comments)"
+    	    			String query = "INSERT INTO trip_table (driver_id, departure_date, departure_time, departure_location, durations, destinations, seats_available, passenger_id, prices, vehicle_type, licence_plate, contact_no, comments, \"isCompleted\")"
 	    						+ "VALUES (" + newTrip.getDriverID() + ", '" + newTrip.getDepartureDate() + "', '" + newTrip.getDepartureTime() + "', '" + newTrip.getDepartureLocation() + "', '{" + arrayListToString(newTrip.getTripDurations()) + "}', '{"
-	    						+ arrayListToString(newTrip.getDestination()) + "}', " + newTrip.getSeats() + ", '{" + arrayListToString(newTrip.getPassengerIDList()) + "}', '{" + arrayListToString(newTrip.getPrices()) + "}', '" + newTrip.getVehicleType() + "', '" + newTrip.getLicencePlate() + "', '" + newTrip.getDriverPhone() + "', '" + newTrip.getComments() + "')";	
+	    						+ arrayListToString(newTrip.getDestination()) + "}', " + newTrip.getSeats() + ", '{" + arrayListToString(newTrip.getPassengerIDList()) + "}', '{" + arrayListToString(newTrip.getPrices()) + "}', '" + newTrip.getVehicleType() + "', '" 
+	    						+ newTrip.getLicencePlate() + "', '" + newTrip.getDriverPhone() + "', '" + newTrip.getComments() + "', 'false')";	
     	    			
     	    			service.sqlInsert(query);
     	    			
