@@ -295,13 +295,15 @@ public class RideShareController {
 			
 			String query = "";
 			if (status.equalsIgnoreCase("enroute")) {
-				query ="select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
+				query ="select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
-				query ="select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+				query ="select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
 			}
 			
 			list = service.executeSQL(query);
+			
+			System.out.println("List Size: " + list.size());
 			
 			String value = new String();
 			for (int i=0; i<list.size(); i++) {
@@ -309,7 +311,6 @@ public class RideShareController {
 			}
 			
 			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
-			System.out.println(value);
 			
 			if (value.equals("null") ) {
 				return "[]";
@@ -321,10 +322,10 @@ public class RideShareController {
 			List<Map<String,Object>> list;
 			String query = "";
 			if (status.equalsIgnoreCase("enroute")) {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND \"isCompleted\" = 'false' GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = trip_table.driver_id GROUP BY userid";
 			}
 	
 			list = service.executeSQL(query);
@@ -335,7 +336,6 @@ public class RideShareController {
 			}
 			
 			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
-			System.out.println(value);
 			
 			if (value.equals("null") ) {
 				return "[]";
@@ -371,13 +371,13 @@ public class RideShareController {
 			String query = "";
 			
 			if (status.equalsIgnoreCase("active")) {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
 			}
 			else if (status.equalsIgnoreCase("registered") || status.isEmpty()) {
-				query = "select to_json (user_table) from user_table WHERE ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table WHERE ((" + searchFirstName + ") OR (" + searchLastName + ")) GROUP BY userid";
 			}
 			else if(status.equalsIgnoreCase("enroute")) {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND ((" + searchFirstName + ") OR (" + searchLastName + ")) AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
 				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
@@ -403,13 +403,13 @@ public class RideShareController {
 			List<Map<String,Object>> list;
 			String query = "";
 			if (status.equalsIgnoreCase("active")) {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) GROUP BY userid";
 			}
 			else if (status.equalsIgnoreCase("registered") || status.isEmpty()) {
-				query = "select to_json (user_table) from user_table GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table GROUP BY userid";
 			}
 			else if(status.equalsIgnoreCase("enroute")) {
-				query = "select to_json (user_table) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND \"isCompleted\" = 'false' GROUP BY userid";
+				query = "select array_to_json (array_agg(user_table)) from user_table, trip_table WHERE user_table.userid = ANY(trip_table.passenger_id) AND \"isCompleted\" = 'false' GROUP BY userid";
 			}
 			else {
 				return "Please enter a proper status: active, registered, enroute, or leave the field empty";
