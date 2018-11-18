@@ -504,6 +504,34 @@ public class RideShareController {
 			
 			return value;
 		}
+		else if (date.isEmpty() == false) {
+			List<Map<String,Object>> list;
+		
+			String query	= "WITH filtered AS (" + 
+					"  SELECT * FROM trip_table WHERE departure_date = '" + date + "' ORDER BY departure_time DESC" + 
+					"), final AS (" + 
+					"  SELECT * from filtered" + 
+					"  LEFT OUTER JOIN user_table " + 
+					"  ON filtered.driver_id = user_table.userid" + 
+					")" + 
+					"SELECT array_to_json(array_agg(final)) FROM final";
+			
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+		
+			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+			System.out.println(value);
+		
+			if (value.equals("null") ) {
+				return "[]";
+			}
+		
+			return value;
+		}
 		else {
 			return "Usage: Send a POST request to \"/trips/search?dep={departure_location}&dest={destination}&date={departure_date}&seats={seats_required}&sortBy={time(0), price(1), seats(2) or duration(3)}\" \n"
 					+ "Note that, at minimum, either a specific Trip ID or a Departure Location is required";
@@ -513,7 +541,7 @@ public class RideShareController {
 	
 	// return the list of trips that fit the partial search matching
 		@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
-		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
+		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status, @RequestParam(name="date", defaultValue= "") String date) {
 			if (keyword.isEmpty() == false) {
 				List<Map<String,Object>> list;
 				String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
@@ -532,13 +560,19 @@ public class RideShareController {
 					}
 				}
 				
+				String date_query = "";
+				
+				if (!date.isEmpty()) {
+					date_query = "AND departure_date = '" + date + "' ";
+				}
+				
 				//In order to use the LIKE operator on array columns we need to unnest() them as used below
 				String query = "";
 				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) GROUP BY trip_id";
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ") " + date_query + ") GROUP BY trip_id";
 				}
 				else if (status.equalsIgnoreCase("enroute")) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' GROUP BY trip_id";
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' " + date_query + "GROUP BY trip_id";
 				}
 				else {
 					return "Please enter a proper status: all, enroute, or leave the field empty";
