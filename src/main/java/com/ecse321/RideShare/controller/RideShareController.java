@@ -474,6 +474,34 @@ public class RideShareController {
 			
 			return value;
 		}
+		else if (date.isEmpty() == false) {
+			List<Map<String,Object>> list;
+		
+			String query	= "WITH filtered AS (" + 
+					"  SELECT * FROM trip_table WHERE departure_date = '" + date + "' ORDER BY departure_time DESC" + 
+					"), final AS (" + 
+					"  SELECT * from filtered" + 
+					"  LEFT OUTER JOIN user_table " + 
+					"  ON filtered.driver_id = user_table.userid" + 
+					")" + 
+					"SELECT array_to_json(array_agg(final)) FROM final";
+			
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+		
+			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+			System.out.println(value);
+		
+			if (value.equals("null") ) {
+				return "[]";
+			}
+		
+			return value;
+		}
 		else {
 			return "Usage: Send a POST request to \"/trips/search?dep={departure_location}&dest={destination}&date={departure_date}&seats={seats_required}&sortBy={time(0), price(1), seats(2) or duration(3)}\" \n"
 					+ "Note that, at minimum, either a specific Trip ID or a Departure Location is required";
