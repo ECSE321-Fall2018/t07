@@ -9,7 +9,12 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
-Nov. 17, 2018: (Web Frontend)
+Nov. 17, 2018: (Web Frontend, Sprint 3)
+- trip_table was updated with a column called isCompleted which stores a boolean variable to track if the trip is still in progress or not
+- The /trips/create endpoint was slightly altered so that trips by default are initialized with isCompleted set to false as they should be
+- The partial matching search endpoints mentioned below were updated to include support for searching for the 'enroute' status
+
+Nov. 17, 2018: (Web Frontend, Sprint 3)
 - Added rest endpoints "/users/search/partialDriver", "/users/search/partialPassenger" and "/trips/search/partial"
 - These rest endpoints are for the search functions used in the Fleet Status Overview for Sprint 3
 - They allow for search for drivers, passengers and trips using partial matching of search terms
