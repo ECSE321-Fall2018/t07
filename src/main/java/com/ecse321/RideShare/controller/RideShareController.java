@@ -303,13 +303,30 @@ public class RideShareController {
 		
 	// return the list of trips
 	@RequestMapping(path="/trips", method=RequestMethod.GET)
-	public String trip() {
+	public String trip() {		
 		List<Map<String,Object>> list;
-		list = service.executeSQL ("select to_json(trip_table) from trip_table");
+		
+		String query	= "WITH filtered AS (" + 
+				"  SELECT * FROM trip_table ORDER BY departure_time ASC" + 
+				"), final AS (" + 
+				"  SELECT * from filtered" + 
+				"  LEFT OUTER JOIN user_table " + 
+				"  ON filtered.driver_id = user_table.userid" + 
+				")" + 
+				"SELECT array_to_json(array_agg(final)) FROM final";
+		
+		list = service.executeSQL(query);
 		
 		String value = new String();
 		for (int i=0; i<list.size(); i++) {
 			value += list.get(i).values().toString();
+		}
+		
+		value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+		System.out.println(value);
+		
+		if (value.equals("null") ) {
+			return "[]";
 		}
 		
 		return value;
