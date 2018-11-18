@@ -137,15 +137,121 @@ public class RideShareController {
 	
 	
 	// Identifying the top performing drivers
-	@RequestMapping(path="/drivers/ranking", method=RequestMethod.GET)
-	public String driver_ranking (ModelMap modelMap,  String status) {
+	@RequestMapping(path="/drivers/ranking", method=RequestMethod.POST)
+	public String driver_ranking (ModelMap modelMap, @RequestParam(name="startDate", defaultValue="") String startDate, @RequestParam(name="endDate", defaultValue="") String endDate) {
 		List<Map<String,Object>> list;
+		String query = "";
 		
-		String query	= "WITH filtered AS (" + 
-				"select driver_id, count(driver_id) from trip_table group by driver_id ORDER BY count DESC" + 
-				"), " + 
-				"final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
-				"SELECT array_to_json(array_agg(final)) FROM final";
+		if (!startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd") || !isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"select driver_id, count(driver_id) from trip_table WHERE departure_date >= '" + startDate + 
+						"'::date AND departure_date <= '" + endDate + "'::date group by driver_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}
+		}
+		else if(!startDate.isEmpty() && endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"select driver_id, count(driver_id) from trip_table WHERE departure_date >= '" + startDate + 
+						"'::date group by driver_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}
+		}
+		else if(startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"select driver_id, count(driver_id) from trip_table WHERE departure_date <= '" + endDate 
+						+ "'::date group by driver_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}	
+		}
+		else {
+			query	= "WITH filtered AS (" + 
+					"select driver_id, count(driver_id) from trip_table group by driver_id ORDER BY count DESC" + 
+					"), " + 
+					"final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
+					"SELECT array_to_json(array_agg(final)) FROM final";
+		}
+		
+		list = service.executeSQL(query);
+		
+		String value = new String();
+		for (int i=0; i<list.size(); i++) {
+			value += list.get(i).values().toString();
+		}
+		
+		value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+		System.out.println(value);
+		
+		if (value.equals("null") ) {
+			return "[]";
+		}
+		
+		return value;
+	}
+	
+	// Identifying the top performing passengers
+	@RequestMapping(path="/passengers/ranking", method=RequestMethod.POST)
+	public String passenger_ranking (ModelMap modelMap, @RequestParam(name="startDate", defaultValue="") String startDate, @RequestParam(name="endDate", defaultValue="") String endDate) {
+		List<Map<String,Object>> list;
+		String query = "";
+		
+		if (!startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd") || !isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"SELECT pass_id, count(pass_id) FROM trip_table t, unnest(passenger_id) pass_id WHERE t.departure_date >= '" + startDate 
+						+ "'::date AND t.departure_date <= '" + endDate + "'::date GROUP BY pass_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.pass_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}
+		}
+		else if(!startDate.isEmpty() && endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"SELECT pass_id, count(pass_id) FROM trip_table t, unnest(passenger_id) pass_id WHERE t.departure_date >= '" + startDate 
+						+ "'::date GROUP BY pass_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.pass_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}
+		}
+		else if(startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query	= "WITH filtered AS (" + 
+						"SELECT pass_id, count(pass_id) FROM trip_table t, unnest(passenger_id) pass_id WHERE t.departure_date <= '" + endDate 
+						+ "'::date GROUP BY pass_id ORDER BY count DESC), " 
+						+ "final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.pass_id = user_table.userid)" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
+			}	
+		}
+		else {
+			query	= "WITH filtered AS (" + 
+					"SELECT pass_id, count(pass_id) FROM trip_table t, unnest(passenger_id) pass_id GROUP BY pass_id ORDER BY count DESC" + 
+					"), " + 
+					"final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.pass_id = user_table.userid)" + 
+					"SELECT array_to_json(array_agg(final)) FROM final";
+		}
 		
 		list = service.executeSQL(query);
 		
@@ -540,77 +646,136 @@ public class RideShareController {
     }
 	
 	// return the list of trips that fit the partial search matching
-		@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
-		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status, @RequestParam(name="date", defaultValue= "") String date) {
-			if (keyword.isEmpty() == false) {
-				List<Map<String,Object>> list;
-				String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
-				String searchDeparture = "";
-				String searchDestination = "";
-				
-				//Checks all of the keywords from the search, separated by commas
-				for (int i = 0; i < keywords.length; i++) {
-					if (keywords[i].isEmpty() == false) {
-						if (i != 0) {
-							searchDeparture = searchDeparture + " OR ";
-							searchDestination = searchDestination + " OR ";
-						}
-						searchDeparture = searchDeparture + "departure_location LIKE '%" + keywords[i] + "%'";
-						searchDestination = searchDestination + "dest LIKE '%" + keywords[i] + "%'";
+	@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
+	public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status, @RequestParam(name="date", defaultValue= "") String date) {
+		if (keyword.isEmpty() == false) {
+			List<Map<String,Object>> list;
+			String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
+			String searchDeparture = "";
+			String searchDestination = "";
+			
+			//Checks all of the keywords from the search, separated by commas
+			for (int i = 0; i < keywords.length; i++) {
+				if (keywords[i].isEmpty() == false) {
+					if (i != 0) {
+						searchDeparture = searchDeparture + " OR ";
+						searchDestination = searchDestination + " OR ";
 					}
+					searchDeparture = searchDeparture + "departure_location LIKE '%" + keywords[i] + "%'";
+					searchDestination = searchDestination + "dest LIKE '%" + keywords[i] + "%'";
 				}
-				
-				String date_query = "";
-				
-				if (!date.isEmpty()) {
-					date_query = "AND departure_date = '" + date + "' ";
-				}
-				
-				//In order to use the LIKE operator on array columns we need to unnest() them as used below
-				String query = "";
-				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ") " + date_query + ") GROUP BY trip_id";
-				}
-				else if (status.equalsIgnoreCase("enroute")) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' " + date_query + "GROUP BY trip_id";
-				}
-				else {
-					return "Please enter a proper status: all, enroute, or leave the field empty";
-				}
-				
-				list = service.executeSQL(query);
-				
-				String value = new String();
-				for (int i=0; i<list.size(); i++) {
-					value += list.get(i).values().toString();
-				}
-				
-				return value;
+			}
+			
+			String date_query = "";
+			
+			if (!date.isEmpty()) {
+				date_query = "AND departure_date = '" + date + "' ";
+			}
+			
+			//In order to use the LIKE operator on array columns we need to unnest() them as used below
+			String query = "";
+			if (status.equalsIgnoreCase("all") || status.isEmpty()) {
+				query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ") " + date_query + ") GROUP BY trip_id";
+			}
+			else if (status.equalsIgnoreCase("enroute")) {
+				query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' " + date_query + "GROUP BY trip_id";
 			}
 			else {
-				List<Map<String,Object>> list;
-				String query = "";
-				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-					query = "select to_json (trip_table) from trip_table";
-				}
-				else if (status.equalsIgnoreCase("enroute")) {
-					query = "select to_json (trip_table) from trip_table WHERE \"isCompleted\" = 'false'";
-				}
-				else {
-					return "Please enter a proper status: all, enroute, or leave the field empty";
-				}
-				
-				list = service.executeSQL(query);
-				String value = new String();
-				
-				for (int i=0; i<list.size(); i++) {
-					value += list.get(i).values().toString();
-				}
-				
-				return value;
-				
+				return "Please enter a proper status: all, enroute, or leave the field empty";
+			}
+			
+			list = service.executeSQL(query);
+			
+			String value = new String();
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+		}
+		else {
+			List<Map<String,Object>> list;
+			String query = "";
+			if (status.equalsIgnoreCase("all") || status.isEmpty()) {
+				query = "select to_json (trip_table) from trip_table";
+			}
+			else if (status.equalsIgnoreCase("enroute")) {
+				query = "select to_json (trip_table) from trip_table WHERE \"isCompleted\" = 'false'";
+			}
+			else {
+				return "Please enter a proper status: all, enroute, or leave the field empty";
+			}
+			
+			list = service.executeSQL(query);
+			String value = new String();
+			
+			for (int i=0; i<list.size(); i++) {
+				value += list.get(i).values().toString();
+			}
+			
+			return value;
+			
+		}
+	}
+		
+	// Identifying the top performing drivers
+	@RequestMapping(path="/trips/ranking", method=RequestMethod.POST)
+	public String trip_ranking (ModelMap modelMap, @RequestParam(name="startDate", defaultValue="") String startDate, @RequestParam(name="endDate", defaultValue="") String endDate) {
+		List<Map<String,Object>> list;
+		String query = "";
+		
+		if (!startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd") || !isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query = "WITH final AS (SELECT count(*), departure_location, destinations FROM trip_table WHERE departure_date >= '" + startDate 
+						+ "'::date AND departure_date <= '" + endDate + "'::date GROUP BY departure_location, destinations ORDER BY count DESC)" 
+						+ "SELECT array_to_json(array_agg(final)) FROM final";
 			}
 		}
+		else if(!startDate.isEmpty() && endDate.isEmpty()) {
+			if (!isValidFormat(startDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query = "WITH final AS (SELECT count(*), departure_location, destinations FROM trip_table WHERE departure_date >= '" + startDate 
+						+ "'::date GROUP BY departure_location, destinations ORDER BY count DESC)" 
+						+ "SELECT array_to_json(array_agg(final)) FROM final";
+			}
+		}
+		else if(startDate.isEmpty() && !endDate.isEmpty()) {
+			if (!isValidFormat(endDate, "yyyy-MM-dd")) {
+				return "Please enter dates in a valid format";
+			}
+			else {
+				query = "WITH final AS (SELECT count(*), departure_location, destinations FROM trip_table WHERE " 
+						+ "departure_date <= '" + endDate + "'::date GROUP BY departure_location, destinations ORDER BY count DESC)" 
+						+ "SELECT array_to_json(array_agg(final)) FROM final";
+			}	
+		}
+		else {
+			query = "WITH final AS (SELECT count(*), departure_location, destinations FROM trip_table GROUP BY departure_location, destinations ORDER BY count DESC)" +
+					"SELECT array_to_json(array_agg(final)) FROM final";
+		}
+		
+		
+		list = service.executeSQL(query);
+		
+		String value = new String();
+		for (int i=0; i<list.size(); i++) {
+			value += list.get(i).values().toString();
+		}
+		
+		value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+		System.out.println(value);
+		
+		if (value.equals("null") ) {
+			return "[]";
+		}
+		
+		return value;
+	}
     
     /*
      * API for Writing into Database
