@@ -9,6 +9,12 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 18, 2018: (Web Frontend, Sprint 3)
+- Added REST endpoints to enable the ranking view for drivers, passengers and trips
+- The /drivers/ranking, /passengers/ranking and /trips/ranking endpoints show the associated data with how many occurences sorted from most to least
+- All support parameters: startDate and endDate (can have both, neither, or simply one or the other)
+- Dates bound the search terms so you can look at top drivers/passengers/trips in the given time period
+
 Nov. 17, 2018: (Web Frontend, Sprint 3)
 - trip_table was updated with a column called isCompleted which stores a boolean variable to track if the trip is still in progress or not
 - The /trips/create endpoint was slightly altered so that trips by default are initialized with isCompleted set to false as they should be
