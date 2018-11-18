@@ -307,7 +307,7 @@ public class RideShareController {
 		List<Map<String,Object>> list;
 		
 		String query	= "WITH filtered AS (" + 
-				"  SELECT * FROM trip_table ORDER BY departure_time ASC" + 
+				"  SELECT * FROM trip_table ORDER BY departure_date DESC" + 
 				"), final AS (" + 
 				"  SELECT * from filtered" + 
 				"  LEFT OUTER JOIN user_table " + 
