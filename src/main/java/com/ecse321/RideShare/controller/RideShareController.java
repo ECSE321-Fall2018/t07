@@ -505,7 +505,7 @@ public class RideShareController {
 				String date_query = "";
 				
 				if (!date.isEmpty()) {
-					date_query = "AND departure_date = '" + date + "' "
+					date_query = "AND departure_date = '" + date + "' ";
 				}
 				
 				//In order to use the LIKE operator on array columns we need to unnest() them as used below
