@@ -26,7 +26,7 @@ import com.ecse321.RideShare.RideShareService;
 import com.ecse321.RideShare.model.Trip;
 import com.ecse321.RideShare.model.User;
 
-
+@CrossOrigin
 @RestController
 @ComponentScan("com.ecse321.RideShare.*")
 public class RideShareController {
