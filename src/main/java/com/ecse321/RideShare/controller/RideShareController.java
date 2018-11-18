@@ -135,6 +135,36 @@ public class RideShareController {
 		}
 	}
 	
+	
+	// Identifying the top performing drivers
+	@RequestMapping(path="/drivers/ranking", method=RequestMethod.GET)
+	public String driver_ranking (ModelMap modelMap,  String status) {
+		List<Map<String,Object>> list;
+		
+		String query	= "WITH filtered AS (" + 
+				"select driver_id, count(driver_id) from trip_table group by driver_id ORDER BY count DESC" + 
+				"), " + 
+				"final AS (select * from filtered LEFT OUTER JOIN user_table ON filtered.driver_id = user_table.userid)" + 
+				"SELECT array_to_json(array_agg(final)) FROM final";
+		
+		list = service.executeSQL(query);
+		
+		String value = new String();
+		for (int i=0; i<list.size(); i++) {
+			value += list.get(i).values().toString();
+		}
+		
+		value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+		System.out.println(value);
+		
+		if (value.equals("null") ) {
+			return "[]";
+		}
+		
+		return value;
+	}
+	
+	
 	// search trip_table for driverID's and join with user_table to return searched drivers
 	@RequestMapping(path="/users/search/partialDriver", method=RequestMethod.POST)
 	public String driver_partial_search (ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
