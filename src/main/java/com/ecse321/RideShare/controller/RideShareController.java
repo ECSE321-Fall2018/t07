@@ -483,7 +483,7 @@ public class RideShareController {
 	
 	// return the list of trips that fit the partial search matching
 		@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
-		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
+		public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status, @RequestParam(name="date", defaultValue= "") String date) {
 			if (keyword.isEmpty() == false) {
 				List<Map<String,Object>> list;
 				String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
@@ -502,13 +502,19 @@ public class RideShareController {
 					}
 				}
 				
+				String date_query = "";
+				
+				if (!date.isEmpty()) {
+					date_query = "AND departure_date = '" + date + "' "
+				}
+				
 				//In order to use the LIKE operator on array columns we need to unnest() them as used below
 				String query = "";
 				if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) GROUP BY trip_id";
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ") " + date_query + ") GROUP BY trip_id";
 				}
 				else if (status.equalsIgnoreCase("enroute")) {
-					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' GROUP BY trip_id";
+					query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' " + date_query + "GROUP BY trip_id";
 				}
 				else {
 					return "Please enter a proper status: all, enroute, or leave the field empty";
