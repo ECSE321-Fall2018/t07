@@ -773,9 +773,21 @@ public class RideShareController {
 			
 			list = service.executeSQL(query);
 			String value = new String();
+			value = "[";
 			
 			for (int i=0; i<list.size(); i++) {
-				value += list.get(i).values().toString();
+				String temp_val = list.get(i).values().toString();
+				temp_val = temp_val.substring(1,temp_val.length()).substring(0,temp_val.substring(1,temp_val.length()).length()-1);
+				if (i != list.size()-1) {
+					temp_val += ",";
+				}
+				value += temp_val;
+			}
+			
+			value += "]";
+			
+			if (value.equals("null") ) {
+				return "[]";
 			}
 			
 			return value;
