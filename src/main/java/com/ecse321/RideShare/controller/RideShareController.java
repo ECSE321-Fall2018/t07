@@ -699,7 +699,7 @@ public class RideShareController {
 	
 	// return the list of trips that fit the partial search matching
 	@RequestMapping(path="/trips/search/partial", method=RequestMethod.POST)
-	public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status, @RequestParam(name="date", defaultValue= "") String date) {
+	public String trip_partial_search(ModelMap modelMap, @RequestParam(name="keyword", defaultValue= "") String keyword, @RequestParam(name="status", defaultValue= "") String status) {
 		if (keyword.isEmpty() == false) {
 			List<Map<String,Object>> list;
 			String keywords[] = (keyword.toLowerCase()).split(" ");	// split using space after making everything lowercase
@@ -718,19 +718,27 @@ public class RideShareController {
 				}
 			}
 			
-			String date_query = "";
-			
-			if (!date.isEmpty()) {
-				date_query = "AND departure_date = '" + date + "' ";
-			}
-			
 			//In order to use the LIKE operator on array columns we need to unnest() them as used below
 			String query = "";
 			if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-				query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ") " + date_query + ") GROUP BY trip_id";
+				query	= "WITH filtered AS (" + 
+						"SELECT trip_id, driver_id, \"isCompleted\", departure_date, departure_time, departure_location, destinations FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) GROUP BY trip_id, dest ORDER BY departure_date DESC" + 
+						"), final AS (" + 
+						"  SELECT * from filtered" + 
+						"  LEFT OUTER JOIN user_table " + 
+						"  ON filtered.driver_id = user_table.userid GROUP BY trip_id, driver_id, \"isCompleted\", departure_date, departure_time, departure_location, destinations, userid" + 
+						")" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";				
 			}
 			else if (status.equalsIgnoreCase("enroute")) {
-				query = "select to_json (t) FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' " + date_query + "GROUP BY trip_id";
+				query	= "WITH filtered AS (" + 
+						"SELECT trip_id, driver_id, \"isCompleted\", departure_date, departure_time, departure_location, destinations FROM trip_table t, unnest(destinations) dest WHERE ((" + searchDeparture + ") OR (" + searchDestination + ")) AND \"isCompleted\" = 'false' GROUP BY trip_id, dest ORDER BY departure_date DESC" + 
+						"), final AS (" + 
+						"  SELECT * from filtered" + 
+						"  LEFT OUTER JOIN user_table " + 
+						"  ON filtered.driver_id = user_table.userid GROUP BY trip_id, driver_id, \"isCompleted\", departure_date, departure_time, departure_location, destinations, userid" + 
+						")" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";
 			}
 			else {
 				return "Please enter a proper status: all, enroute, or leave the field empty";
@@ -792,8 +800,6 @@ public class RideShareController {
 				value += list.get(i).values().toString();
 			}
 			
-			
-			
 			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
 			System.out.println(value);
 			
@@ -802,7 +808,6 @@ public class RideShareController {
 			}
 			
 			return value;
-			
 		}
 	}
 		
