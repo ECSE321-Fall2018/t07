@@ -9,6 +9,9 @@ NOTE:
 - Persistence is handled in the application through direct injection to the postgreSQL database. Database contents are saved automatically after all changes because of this.
 
 ### Changelog
+Nov. 19, 2018: (Web Frontend, Sprint 3)
+- Changed the /trips/search/partial REST endpoint to join with the user_table so that the driver's first name and last name can also be displayed
+
 Nov. 18, 2018: (Web Frontend, Sprint 3)
 - Added REST endpoints to enable the ranking view for drivers, passengers and trips
 - The /drivers/ranking, /passengers/ranking and /trips/ranking endpoints show the associated data with how many occurences sorted from most to least
