@@ -762,29 +762,40 @@ public class RideShareController {
 			List<Map<String,Object>> list;
 			String query = "";
 			if (status.equalsIgnoreCase("all") || status.isEmpty()) {
-				query = "select to_json (trip_table) from trip_table";
+				query	= "WITH filtered AS (" + 
+						"  SELECT * FROM trip_table ORDER BY departure_date DESC" + 
+						"), final AS (" + 
+						"  SELECT * from filtered" + 
+						"  LEFT OUTER JOIN user_table " + 
+						"  ON filtered.driver_id = user_table.userid" + 
+						")" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";				
 			}
 			else if (status.equalsIgnoreCase("enroute")) {
-				query = "select to_json (trip_table) from trip_table WHERE \"isCompleted\" = 'false'";
+				query	= "WITH filtered AS (" + 
+						"  SELECT * FROM trip_table WHERE \"isCompleted\" = 'false' ORDER BY departure_date DESC" + 
+						"), final AS (" + 
+						"  SELECT * from filtered" + 
+						"  LEFT OUTER JOIN user_table " + 
+						"  ON filtered.driver_id = user_table.userid" + 
+						")" + 
+						"SELECT array_to_json(array_agg(final)) FROM final";	
 			}
 			else {
 				return "Please enter a proper status: all, enroute, or leave the field empty";
 			}
 			
 			list = service.executeSQL(query);
-			String value = new String();
-			value = "[";
 			
+			String value = new String();
 			for (int i=0; i<list.size(); i++) {
-				String temp_val = list.get(i).values().toString();
-				temp_val = temp_val.substring(1,temp_val.length()).substring(0,temp_val.substring(1,temp_val.length()).length()-1);
-				if (i != list.size()-1) {
-					temp_val += ",";
-				}
-				value += temp_val;
+				value += list.get(i).values().toString();
 			}
 			
-			value += "]";
+			
+			
+			value = value.substring(1,value.length()).substring(0,value.substring(1,value.length()).length()-1);
+			System.out.println(value);
 			
 			if (value.equals("null") ) {
 				return "[]";
