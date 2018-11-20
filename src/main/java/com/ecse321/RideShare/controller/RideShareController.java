@@ -747,7 +747,6 @@ public class RideShareController {
 			list = service.executeSQL(query);
 			
 			String value = new String();
-			value = "[";
 			
 			for (int i=0; i<list.size(); i++) {
 				String temp_val = list.get(i).values().toString();
@@ -757,9 +756,7 @@ public class RideShareController {
 				}
 				value += temp_val;
 			}
-			
-			value += "]";
-			
+						
 			if (value.equals("null") ) {
 				return "[]";
 			}
